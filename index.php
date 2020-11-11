@@ -1,4 +1,5 @@
 <?php
+    session_regenerate_id(true);
     session_start();
 
     if (!isset($_SESSION["regState"])) $_SESSION["regState"] = 0;
@@ -22,9 +23,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Rate My Class</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="icon" href="assets/img/favicon/RateMyClassLogo.png" type="image/png">
     <link rel="stylesheet" href="assets/css/signin.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="assets/img/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="assets/img/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
 </head>
 
 <body>

@@ -13,6 +13,14 @@
 	}
 }
 
+body {
+    background-color: rgb(230, 230, 230);
+}
+
 code {
 	color: red;
+}
+
+.navbar.navbar-dark.align-items-start.sidebar.sidebar-dark.accordion.p-0 {
+    background-image: linear-gradient(to right, #790604, #800604);
 }
