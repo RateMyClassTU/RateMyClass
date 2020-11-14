@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Rate My Class | Home</title>
+    <title>Rate My Class | Courses</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -19,7 +19,6 @@
     <link rel="icon" href="assets/img/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="assets/img/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="manifest" href="assets/img/favicon/site.webmanifest">
-    <
 </head>
 
 <body>
@@ -37,13 +36,13 @@
                 <hr class="sidebar-divider mt-2">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link" href="home.php">
                             <span>Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="courses.php">
-                            <span>Classes</span>
+                        <a class="nav-link active" href="#">
+                            <span>Courses</span>
                         </a>
                     </li>
                 </ul>
@@ -101,8 +100,23 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row courseOverlay">
                         <div class="col-12">
+                            <label for="courseCategory">Choose a category:</label>
+                            <br>
+                            <select name="courseCategory" id="courseCategory">
+                                <option value="noCategory">-</option>
+                                <option value="ccArt">Art</option>
+                                <option value="ccCS">Computer Science</option>
+                            </select>
+                            <hr>
+                            <label for="courseSelect">Choose a class:</label>
+                            <br>
+                            <select name="courseSelect" id="courseSelect">
+                                <option value="noClass">-</option>
+                                <option value="cis3296">CIS 3296</option>
+                                <option value="cis4298">CIS 4298</option>
+                            </select>
                         </div>
                     </div>
                 </div>
