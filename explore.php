@@ -10,7 +10,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Rate My Class | Home</title>
+    <title>Rate My Class | Courses</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -36,12 +36,12 @@
                 <hr class="sidebar-divider mt-2">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link" href="home.php">
                             <span>Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="explore.php">
+                        <a class="nav-link active" href="#">
                             <span>Explore</span>
                         </a>
                     </li>
@@ -105,21 +105,21 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12 text-center main-body">
-                            <div id="container">
-                                <h1>Welcome to Rate My Class</h1>
-                            </div>
+                    <div class="row courseOverlay">
+                        <div class="col-12">
+                            <label for="courseCategory">Choose a category:</label>
+                            <br>
+                            <select name="courseCategory" id="courseCategory">
+                                <option value="none">-</option>
+                                <option value="CS">Computer Science</option>
+                            </select>
                             <hr>
-                            <div id="container2">
-                                <h3>At Rate My Class, we aim to provide a platform for students!</h3>
-                                <span>
-                                    Our objective is for students to view and post reviews about courses and
-                                    professors across different Temple departments.
-                                </span>
-                                <br>
-                                <span>Picking classes has never been easier</span>
-                            </div>
+                            <label for="courseSelect">Choose a class:</label>
+                            <br>
+                            <select name="courseSelect" id="courseSelect">
+                                <option value="none">-</option>
+                                <option value="cis3296">CIS 3296</option>
+                            </select>
                         </div>
                     </div>
                 </div>

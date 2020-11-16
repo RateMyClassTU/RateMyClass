@@ -41,8 +41,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="explore.php">
+                            <span>Explore</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" href="#">
-                            <span>Courses</span>
+                            <span>Professors</span>
                         </a>
                     </li>
                 </ul>
@@ -105,17 +110,14 @@
                             <label for="courseCategory">Choose a category:</label>
                             <br>
                             <select name="courseCategory" id="courseCategory">
-                                <option value="noCategory">-</option>
-                                <option value="ccArt">Art</option>
-                                <option value="ccCS">Computer Science</option>
+                                <option value="none">-</option>
+                                <option value="CS">Computer Science</option>
                             </select>
                             <hr>
-                            <label for="courseSelect">Choose a class:</label>
+                            <label for="courseSelect">Choose a professor:</label>
                             <br>
                             <select name="courseSelect" id="courseSelect">
                                 <option value="noClass">-</option>
-                                <option value="cis3296">CIS 3296</option>
-                                <option value="cis4298">CIS 4298</option>
                             </select>
                         </div>
                     </div>
