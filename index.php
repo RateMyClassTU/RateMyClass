@@ -48,7 +48,7 @@
             <label for="Password" class="sr-only">Password</label>
             <label for="Password">Password</label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Sign in</button>
+        <button class="btn btn-lg btn-danger btn-block mt-3" type="submit">Sign in</button>
         <hr>
         <div class="text-center">
             <a href="assets/php/register.php">Register</a> |
@@ -84,7 +84,7 @@
             <label for="Email" class="sr-only">Email address</label>
             <label for="Email">Email address</label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Create Account</button>
+        <button class="btn btn-lg btn-danger btn-block mt-3" type="submit">Create Account</button>
         <hr>
         <div class="text-center">
             <a href="assets/php/back.php">Already have an account? Click here.</a>
@@ -104,7 +104,7 @@
             <label for="Email" class="sr-only">Email address</label>
             <label for="Email">Email address</label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Reset password</button>
+        <button class="btn btn-lg btn-danger btn-block mt-3" type="submit">Reset password</button>
         <hr>
         <div class="text-center">
             <a href="assets/php/back.php">Return home</a>
@@ -129,7 +129,7 @@
             <label for="Password2" class="sr-only">Confirm password</label>
             <label for="Password2">Confirm password</label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block mt-3" type="submit">Set password</button>
+        <button class="btn btn-lg btn-danger btn-block mt-3" type="submit">Set password</button>
         <hr>
         <div class="text-center">
             <a href="assets/php/back.php">Return home</a>

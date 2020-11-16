@@ -19,7 +19,6 @@
     <link rel="icon" href="assets/img/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="assets/img/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="manifest" href="assets/img/favicon/site.webmanifest">
-    <
 </head>
 
 <body>
@@ -42,8 +41,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="courses.php">
-                            <span>Classes</span>
+                        <a class="nav-link" href="explore.php">
+                            <span>Explore</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="professor.php">
+                            <span>Professors</span>
                         </a>
                     </li>
                 </ul>
@@ -102,7 +106,20 @@
                 </nav>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-12 text-center main-body">
+                            <div id="container">
+                                <h1>Welcome to Rate My Class</h1>
+                            </div>
+                            <hr>
+                            <div id="container2">
+                                <h3>At Rate My Class, we aim to provide a platform for students!</h3>
+                                <span>
+                                    Our objective is for students to view and post reviews about courses and
+                                    professors across different Temple departments.
+                                </span>
+                                <br>
+                                <span>Picking classes has never been easier</span>
+                            </div>
                         </div>
                     </div>
                 </div>
