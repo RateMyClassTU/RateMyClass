@@ -1,0 +1,46 @@
+{
+    "college1": [
+        {
+            "major1": [
+                {
+                    "course1name": "course1desc"
+                },
+                {
+                    "course2name": "course2desc"
+                }
+            ]
+        },
+        {
+            "major2": [
+                {
+                    "course1name": "course1desc"
+                },
+                {
+                    "course2name": "course2desc"
+                }
+            ]
+        }
+    ],
+    "college2": [
+        {
+            "major1": [
+                {
+                    "course1name": "course1desc"
+                },
+                {
+                    "course2name": "course2desc"
+                }
+            ]
+        },
+        {
+            "major2": [
+                {
+                    "course1name": "course1desc"
+                },
+                {
+                    "course2name": "course2desc"
+                }
+            ]
+        }
+    ]
+}
