@@ -1,7 +1,8 @@
 <?php
-    session_start();
-    if (!isset($_SESSION["regState"])) $_SESSION["regState"] = 0;
-    if ($_SESSION["regState"] != 4) header("location:index.php");
+session_start();
+if (!isset($_SESSION["regState"])) $_SESSION["regState"] = 0;
+if (!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = 0;
+if ($_SESSION["loggedIn"] != 1) header("location:index.php");
 ?>
 
 <!DOCTYPE html>
@@ -46,8 +47,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="professor.php">
-                            <span>Professors</span>
+                        <a id="accountBtn" class="nav-link" data-toggle="modal" href="#accountModal">
+                            <span>My Account</span>
                         </a>
                     </li>
                 </ul>
@@ -107,11 +108,11 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12 text-center main-body">
-                            <div id="container">
+                            <div id="head-container">
                                 <h1>Welcome to Rate My Class</h1>
                             </div>
                             <hr>
-                            <div id="container2">
+                            <div id="body-container">
                                 <h3>At Rate My Class, we aim to provide a platform for students!</h3>
                                 <span>
                                     Our objective is for students to view and post reviews about courses and
@@ -120,8 +121,82 @@
                                 <br>
                                 <span>Picking classes has never been easier</span>
                             </div>
+                            <div class="row justify-content-center mt-5">
+                                <div class="col-4 feature-box">
+                                    <a data-toggle="modal" href="#courseModal">
+                                        <h4>Courses</h4>
+                                    </a>
+                                    <p>Search for a course by category</p>
+                                </div>
+                                <div class="col-4 feature-box">
+                                    <a href="#">
+                                        <h4>Reviews</h4>
+                                    </a>
+                                    <p>Check out the reviews by students</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="courseModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Course Selection</h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <label for="courseCategory">Colleges:</label>
+                    <br>
+                    <select id="courseCategory">
+                        <option value="none" selected="true" disabled>Choose a college</option>
+                        <option value="college1">Boyer College of Music and Dance</option>
+                        <option value="college2">College of Education and Human Development</option>
+                        <option value="college3">College of Engineering</option>
+                        <option value="college4">College of Liberal Arts</option>
+                        <option value="college5">College of Public Health</option>
+                        <option value="college6">College of Science and Technology</option>
+                        <option value="college7">Fox School of Business and Management</option>
+                        <option value="college8">Lew Klein College of Media and Communication</option>
+                        <option value="college9">School of Theater, Film and Media Arts</option>
+                        <option value="college10">Tyler School of Art and Architecture</a>
+                        <option value="college11">University College</option>
+                    </select>
+                    <br><br>
+                    <label for="majorSelect">Majors:</label>
+                    <br>
+                    <select id="majorSelect">
+                        <option selected="true" disabled></option>
+                    </select>
+                    <br><br>
+                    <label for="courseSelect">Courses:</label>
+                    <br>
+                    <select id="courseSelect">
+                        <option selected="true" disabled></option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                    <button id="goBtn" class="btn btn-danger" type="button" disabled>Go</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="accountModal" class="modal fade" role="dialog" style="color: black">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-titel">My Account</h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <h1>Profile information goes here</h1>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>
             </div>
         </div>
@@ -130,6 +205,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/courses.js"></script>
 </body>
 
 </html>

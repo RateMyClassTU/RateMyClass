@@ -1,7 +1,8 @@
 <?php
     session_start();
     if (!isset($_SESSION["regState"])) $_SESSION["regState"] = 0;
-    if ($_SESSION["regState"] != 4) header("location:index.php");
+    if (!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = 0;
+    if ($_SESSION["loggedIn"] != 1) header("location:index.php");
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Rate My Class | Courses</title>
+    <title>Rate My Class | Explore</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -43,11 +44,6 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#">
                             <span>Explore</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="professor.php">
-                            <span>Professors</span>
                         </a>
                     </li>
                 </ul>
@@ -105,21 +101,54 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="row courseOverlay">
-                        <div class="col-12">
-                            <label for="courseCategory">Choose a category:</label>
-                            <br>
-                            <select name="courseCategory" id="courseCategory">
-                                <option value="none">-</option>
-                                <option value="CS">Computer Science</option>
-                            </select>
+                    <div class="row">
+                        <div class="col-12" style="color: black">
+                            <h1>Explore</h1>
+                            <p>If you're looking for resources regarding Temple's different colleges, you've come to the right place.</p>
                             <hr>
-                            <label for="courseSelect">Choose a class:</label>
-                            <br>
-                            <select name="courseSelect" id="courseSelect">
-                                <option value="none">-</option>
-                                <option value="cis3296">CIS 3296</option>
-                            </select>
+                            <h1>Resources</h1>
+                            <div class="row">
+                                <div class="col-4">
+                                <ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Boyer College of Music and Dance</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">College of Education and Human Development</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">College of Engineering</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">College of Liberal Arts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">College of Public Health</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">College of Science and Technology</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-4">
+                                <ul>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Fox School of Business and Management</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Lew Klein College of Media and Communication</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">School of Theater, Film and Media Arts</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">Tyler School of Art and Architecture</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">University College</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
