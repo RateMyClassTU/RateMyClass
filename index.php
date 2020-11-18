@@ -3,6 +3,7 @@
     session_start();
 
     if (!isset($_SESSION["regState"])) $_SESSION["regState"] = 0;
+    if (!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = 0;
     if (!isset($_SESSION["Message"])) $_SESSION["Message"] = "";
     if (!isset($_SESSION["refresh"])) $_SESSION["refresh"] = 0;
 
@@ -89,6 +90,11 @@
         <div class="text-center">
             <a href="assets/php/back.php">Already have an account? Click here.</a>
         </div>
+        <div class="text-center mt-4">
+            <?php
+                echo($_SESSION["Message"]);
+            ?>
+        </div>
         <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class - All Rights Reserved.</p>
     </form>
     <?php
@@ -108,6 +114,11 @@
         <hr>
         <div class="text-center">
             <a href="assets/php/back.php">Return home</a>
+        </div>
+        <div class="text-center mt-4">
+            <?php
+                echo($_SESSION["Message"]);
+            ?>
         </div>
         <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class - All Rights Reserved.</p>
     </form>
@@ -133,6 +144,11 @@
         <hr>
         <div class="text-center">
             <a href="assets/php/back.php">Return home</a>
+        </div>
+        <div class="text-center mt-4">
+            <?php
+                echo($_SESSION["Message"]);
+            ?>
         </div>
         <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class - All Rights Reserved.</p>
     </form>

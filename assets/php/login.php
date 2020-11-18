@@ -32,7 +32,8 @@
     }
 
     $_SESSION["Email"] = $Email;
-    $_SESSION["regState"] = 4;
+    $_SESSION["regState"] = 0;
+    $_SESSION["loggedIn"] = 1;
     $_SESSION["Message"] = "";
     $_SESSION["refresh"] = 0;
     header("location:../../home.php");
