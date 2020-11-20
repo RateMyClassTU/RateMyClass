@@ -192,9 +192,7 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                     <h5 class="modal-titel">My Account</h5>
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
-                <div class="modal-body">
-                    <h1>Profile information goes here</h1>
-                </div>
+                <div id="accountInfo" class="modal-body"></div>
                 <div class="modal-footer">
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>
@@ -205,6 +203,7 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/buttons.js"></script>
     <script src="assets/js/courses.js"></script>
 </body>
 
