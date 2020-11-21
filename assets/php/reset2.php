@@ -43,7 +43,7 @@
     $query = "UPDATE User SET Acode='$Acode' WHERE Email='$Email';";
     $result = mysqli_query($con, $query);
 
-    if (!result) {
+    if (!$result) {
         $_SESSION["Message"] = "<code>Query failed(".mysqli_error($con).")</code>";
         $_SESSION["refresh"] = 0;
         header("location:../../index.php");
