@@ -46,6 +46,11 @@
                             <span>Explore</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a id="accountBtn" class="nav-link" data-toggle="modal" href="#accountModal">
+                            <span>My Account</span>
+                        </a>
+                    </li>
                 </ul>
                 <div class="text-center d-none d-md-inline">
                     <button class="btn rounded-circle border-0 mt-5" id="sidebarToggle" type="button"></button>
@@ -61,9 +66,9 @@
                         </button>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
-                                <input class="bg-light form-control border-0 small" type="text" placeholder="Search...">
+                                <input id="searchMsg" class="bg-light form-control border-0 small" name="searchMsg" type="text" placeholder="Search...">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary py-0" type="button">
+                                    <button id="searchBtn" class="btn btn-primary py-0" type="button">
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
@@ -77,9 +82,9 @@
                                 <div class="dropdown-menu dropdown-menu-right p-3 animated-grow-in" aria-labelledby="searchDropdown">
                                     <form class="form-inline mr-auto navbar-search w-100">
                                         <div class="input-group">
-                                            <input class="bg-light form-control border-0 small" type="text" placeholder="Search...">
+                                            <input id="searchMsg" class="bg-light form-control border-0 small" name="searchMsg" type="text" placeholder="Search...">
                                             <div class="input-group-append">
-                                                <button class="btn btn-primary py-0" type="button">
+                                                <button id="searchBtn" class="btn btn-primary py-0" type="button">
                                                     <i class="fas fa-search"></i>
                                                 </button>
                                             </div>
@@ -106,51 +111,28 @@
                             <h1>Explore</h1>
                             <p>If you're looking for resources regarding Temple's different colleges, you've come to the right place.</p>
                             <hr>
-                            <h1>Resources</h1>
-                            <div class="row">
-                                <div class="col-4">
-                                <ul>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Boyer College of Music and Dance</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">College of Education and Human Development</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">College of Engineering</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">College of Liberal Arts</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">College of Public Health</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">College of Science and Technology</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-4">
-                                <ul>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Fox School of Business and Management</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Lew Klein College of Media and Communication</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">School of Theater, Film and Media Arts</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Tyler School of Art and Architecture</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">University College</a>
-                                    </li>
-                                </ul>
-                            </div>
+                            <select id="collegeSelect"></select>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12" style="color: black">
+                            <div id="searchContent">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="accountModal" class="modal fade" role="dialog" style="color: black">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">My Account</h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div id="accountInfo" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>
             </div>
         </div>
@@ -159,6 +141,7 @@
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/buttons.js"></script>
 </body>
 
 </html>
