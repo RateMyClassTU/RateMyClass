@@ -66,9 +66,9 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                         </button>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
-                                <input class="bg-light form-control border-0 small" type="text" placeholder="Search...">
+                                <input id="search-msg" class="bg-light form-control border-0 small" name="search-msg" type="text" placeholder="Search...">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary py-0" type="button">
+                                    <button id="search-go" class="btn btn-primary py-0" data-toggle="modal" href="#searched" type="button">
                                         <i class="fas fa-search"></i>
                                     </button>
                                 </div>
@@ -82,9 +82,9 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                                 <div class="dropdown-menu dropdown-menu-right p-3 animated-grow-in" aria-labelledby="searchDropdown">
                                     <form class="form-inline mr-auto navbar-search w-100">
                                         <div class="input-group">
-                                            <input class="bg-light form-control border-0 small" type="text" placeholder="Search...">
+                                            <input id="searc-mMsg" class="bg-light form-control border-0 small" name="search-msg" type="text" placeholder="Search...">
                                             <div class="input-group-append">
-                                                <button class="btn btn-primary py-0" type="button">
+                                                <button id="search-go" class="btn btn-primary py-0" data-toggle="modal" href="#searched" type="button">
                                                     <i class="fas fa-search"></i>
                                                 </button>
                                             </div>
@@ -129,10 +129,10 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                                     <p>Search for a course by category</p>
                                 </div>
                                 <div class="col-4 feature-box">
-                                    <a href="#">
-                                        <h4>Reviews</h4>
+                                    <a id="professorToggleBtn" data-toggle="modal" href="#professorModal">
+                                        <h4>Professors</h4>
                                     </a>
-                                    <p>Check out the reviews by students</p>
+                                    <p>Check out what students are saying about professors</p>
                                 </div>
                             </div>
                         </div>
@@ -161,6 +161,22 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
             </div>
         </div>
     </div>
+    <div id="professorModal" class="modal fade" role="dialog" style="color: black">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Professor Lookup</h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <span>Search reviews for professors here</span>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="accountModal" class="modal fade" role="dialog" style="color: black">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -169,6 +185,20 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
                 <div id="accountInfo" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="searched" class="modal fade" role="dialog" style="color: black">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Results</h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div id="search-content" class="modal-body"></div>
                 <div class="modal-footer">
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("config2.php");
+    require_once("config.php");
 
     $con = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
 
@@ -10,7 +10,13 @@
         exit();
     }
 
-    $query = "SELECT Department FROM BulletinUndergrad GROUP BY Department ORDER BY Department ASC;";
+    $query = "SELECT Department
+              FROM BulletinUndergrad
+              UNION
+              SELECT Department
+              FROM BulletinGrad
+              GROUP BY Department
+              ORDER BY Department ASC;";
     $result = mysqli_query($con, $query);
 
     if (!$result) {

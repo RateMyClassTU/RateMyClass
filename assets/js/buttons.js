@@ -16,7 +16,7 @@ $(document).ready(function() {
         e.preventDefault();
         if ($(this).val() != '') {
             var formData = {
-                "Message": $("input[name=searchMsg").val()
+                "Message": $("input[name=searchMsg]").val()
             };
             $.ajax({
                 type: "POST",
@@ -29,6 +29,24 @@ $(document).ready(function() {
             })
         } else if ($(this).val() == "") {
             $("#searchContent").html("");
+        }
+    })
+
+    $("#search-go").click(function(e) {
+        e.preventDefault();
+        if ($("#search-msg").val() != '') {
+            var formData = {
+                "Message": $("input[name=search-msg]").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "assets/php/searchGo.php",
+                data: formData,
+                dataType: "text",
+                success: function(data) {
+                    $("#search-content").html(data);
+                }
+            })
         }
     })
 })
