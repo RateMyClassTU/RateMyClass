@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("config2.php");
+    require_once("config.php");
 
     $Department = $_POST["Department"];
     $con = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
@@ -11,7 +11,13 @@
         exit();
     }
 
-    $query = "SELECT Course FROM BulletinUndergrad WHERE Department='$Department';";
+    $query = "SELECT Course
+              FROM BulletinUndergrad
+              WHERE Department='$Department'
+              UNION
+              SELECT Course
+              FROM BulletinGrad
+              WHERE Department='$Department';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
