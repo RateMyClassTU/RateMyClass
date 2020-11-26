@@ -123,7 +123,7 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                             </div>
                             <div class="row justify-content-center mt-5">
                                 <div class="col-4 feature-box">
-                                    <a data-toggle="modal" href="#courseModal">
+                                    <a id="courseToggleBtn" data-toggle="modal" href="#courseModal">
                                         <h4>Courses</h4>
                                     </a>
                                     <p>Search for a course by category</p>
@@ -149,34 +149,10 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
                 <div class="modal-body">
-                    <label for="courseCategory">Colleges:</label>
-                    <br>
-                    <select id="courseCategory">
-                        <option value="none" selected="true" disabled>Choose a college</option>
-                        <option value="college1">Boyer College of Music and Dance</option>
-                        <option value="college2">College of Education and Human Development</option>
-                        <option value="college3">College of Engineering</option>
-                        <option value="college4">College of Liberal Arts</option>
-                        <option value="college5">College of Public Health</option>
-                        <option value="college6">College of Science and Technology</option>
-                        <option value="college7">Fox School of Business and Management</option>
-                        <option value="college8">Lew Klein College of Media and Communication</option>
-                        <option value="college9">School of Theater, Film and Media Arts</option>
-                        <option value="college10">Tyler School of Art and Architecture</a>
-                        <option value="college11">University College</option>
-                    </select>
-                    <br><br>
-                    <label for="majorSelect">Majors:</label>
-                    <br>
-                    <select id="majorSelect">
-                        <option selected="true" disabled></option>
-                    </select>
-                    <br><br>
-                    <label for="courseSelect">Courses:</label>
-                    <br>
-                    <select id="courseSelect">
-                        <option selected="true" disabled></option>
-                    </select>
+                    <label for="collegeSelect">Majors:</label><br>
+                    <select id="collegeSelect"></select><br><br>
+                    <label for="courseSelect">Courses:</label><br>
+                    <select id="courseSelect"></select>
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
@@ -189,7 +165,7 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-titel">My Account</h5>
+                    <h5 class="modal-title">My Account</h5>
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
                 <div id="accountInfo" class="modal-body"></div>
