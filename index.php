@@ -51,6 +51,7 @@
         </div>
         <button class="btn btn-lg btn-danger btn-block mt-3" type="submit">Sign in</button>
         <hr>
+        <div class="g-recaptcha mt-3" data-sitekey="6Lfgy-0ZAAAAAMxuE9s4afGVIR4zamGLK7AWI_HK"></div>
         <div class="text-center">
             <a href="assets/php/register.php">Register</a> |
             <a href="assets/php/reset.php">Forget?</a>
@@ -85,6 +86,7 @@
             <label for="Email" class="sr-only">Email address</label>
             <label for="Email">Email address</label>
         </div>
+        <div class="g-recaptcha mt-3" data-sitekey="6Lfgy-0ZAAAAAMxuE9s4afGVIR4zamGLK7AWI_HK"></div>
         <button class="btn btn-lg btn-danger btn-block mt-3" type="submit">Create Account</button>
         <hr>
         <div class="text-center">
@@ -110,6 +112,7 @@
             <label for="Email" class="sr-only">Email address</label>
             <label for="Email">Email address</label>
         </div>
+        <div class="g-recaptcha mt-3" data-sitekey="6Lfgy-0ZAAAAAMxuE9s4afGVIR4zamGLK7AWI_HK"></div>
         <button class="btn btn-lg btn-danger btn-block mt-3" type="submit">Reset password</button>
         <hr>
         <div class="text-center">
@@ -157,6 +160,7 @@
     ?>
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 
 </html>

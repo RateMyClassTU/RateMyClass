@@ -2,6 +2,21 @@
     session_start();
     require_once("config.php"); // get server
 
+    if (isset($_GET["g-recaptcha-response"])) {
+        $SECRETKEY = "6Lfgy-0ZAAAAACStrtLYyi4teYOtjiFn-35mH-L2";
+        $RESPONSE = $_GET["g-recaptcha-response"];
+        $URL = "https://www.google.com/recaptcha/api/siteverify?secret=$SECRETKEY&response=$RESPONSE";
+        $FIRE = file_get_contents($URL);
+        $DATA = json_decode($FIRE);
+
+        if ($DATA->success != true) {
+            $_SESSION["refresh"] = 0;
+            $_SESSION["Message"] = "<code>Recaptcha error. Please try again!</code>";
+            header("location:../../index.php");
+            exit();
+        }
+    }
+    
     $Email = $_POST["Email"]; // get email
     $Password = hash('sha256', ($_POST["Password"])); // get encrypted password
 
