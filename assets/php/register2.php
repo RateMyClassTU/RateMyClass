@@ -10,6 +10,21 @@
     require '../PHPMailer-master/src/PHPMailer.php';
     require '../PHPMailer-master/src/SMTP.php';
 
+    if (isset($_GET["g-recaptcha-response"])) {
+        $SECRETKEY = "6Lfgy-0ZAAAAACStrtLYyi4teYOtjiFn-35mH-L2";
+        $RESPONSE = $_GET["g-recaptcha-response"];
+        $URL = "https://www.google.com/recaptcha/api/siteverify?secret=$SECRETKEY&response=$RESPONSE";
+        $FIRE = file_get_contents($URL);
+        $DATA = json_decode($FIRE);
+
+        if ($DATA->success != true) {
+            $_SESSION["refresh"] = 0;
+            $_SESSION["Message"] = "<code>Recaptcha error. Please try again!</code>";
+            header("location:../../index.php");
+            exit();
+        }
+    }
+    
     $FirstName = $_GET["fname"];
     $LastName = $_GET["lname"];
     $Email = $_GET["Email"];
