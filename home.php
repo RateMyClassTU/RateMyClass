@@ -149,9 +149,9 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
                 <div class="modal-body">
-                    <label for="collegeSelect">Majors:</label><br>
-                    <select id="collegeSelect"></select><br><br>
-                    <label for="courseSelect">Courses:</label><br>
+                    <label for="courseSearch">Course Search</label><br>
+                    <input id="courseSearch" name="courseSearch" type="text" placeholder="Search courses here"><hr>
+                    <label for="courseSelect">Search Results</label><br>
                     <select id="courseSelect"></select>
                 </div>
                 <div class="modal-footer">

@@ -1,8 +1,8 @@
 <?php
     session_start();
-    require_once("config.php");
+    require_once("config2.php");
 
-    $Department = $_POST["Department"];
+    $Message = $_POST["Message"];
     $con = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
 
     if (!$con) {
@@ -13,11 +13,13 @@
 
     $query = "SELECT Course
               FROM BulletinUndergrad
-              WHERE Department='$Department'
+              WHERE Course
+              LIKE '$Message%'
               UNION
               SELECT Course
               FROM BulletinGrad
-              WHERE Department='$Department';";
+              WHERE Course
+              LIKE '$Message%';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
