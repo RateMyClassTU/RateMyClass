@@ -7,7 +7,7 @@ code {
 }
 
 .navbar.navbar-dark.align-items-start.sidebar.sidebar-dark.accordion.p-0 {
-    background-color: background-color: #201f25;
+    background-color: #201f25;
 }
 
 .courseOverlay {
@@ -18,7 +18,26 @@ code {
     color: black;
 }
 
-#container {
+.feature-box {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.12);
+    background-color: #fdfcfd;
+    margin: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.close {
+    text-decoration: none;
+    float: right;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#head-container {
     color: white;
     font: serif;
     border-radius: 10px;
@@ -27,17 +46,17 @@ code {
     background-color: #B30739;
 }
 
-#container2 {
+#body-container {
     border: 1px solid grey;
     background-color: #fff5ef;
     padding: 20px;
 }
 
-#container2 h3 {
+#body-container h3 {
     margin-bottom: 20px;
 }
 
-#courseCategory, #courseSelect {
-    width: 20vw;
-    color: grey;
+#courseSelect, #courseSearch {
+    width: 30vw;
+    color: black;
 }
