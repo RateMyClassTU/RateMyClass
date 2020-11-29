@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $("#accountBtn").click(function(e) {
         e.preventDefault();
         $.ajax({
@@ -14,7 +15,7 @@ $(document).ready(function() {
 
     $("#searchMsg").keyup(function(e) {
         e.preventDefault();
-        if ($(this).val() != '') {
+        if ($(this).val() != "") {
             var formData = {
                 "Message": $("input[name=searchMsg]").val()
             };
@@ -34,7 +35,7 @@ $(document).ready(function() {
 
     $("#search-go").click(function(e) {
         e.preventDefault();
-        if ($("#search-msg").val() != '') {
+        if ($("#search-msg").val() != "") {
             var formData = {
                 "Message": $("input[name=search-msg]").val()
             };
@@ -45,6 +46,24 @@ $(document).ready(function() {
                 dataType: "text",
                 success: function(data) {
                     $("#search-content").html(data);
+                }
+            })
+        }
+    })
+
+    $("#search-go2").click(function(e) {
+        e.preventDefault();
+        if ($("#search-msg2").val() != "") {
+            var formData = {
+                "Message": $("input[name=search-msg2]").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "assets/php/searchGo.php",
+                data: formData,
+                dataType: "text",
+                success: function(data) {
+                    $("#search-content2").html(data);
                 }
             })
         }

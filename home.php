@@ -66,7 +66,7 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                         </button>
                         <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                             <div class="input-group">
-                                <input id="search-msg" class="bg-light form-control border-0 small" name="search-msg" type="text" placeholder="Search...">
+                                <input id="search-msg" class="bg-light form-control border-0 small" name="search-msg" type="text" placeholder="Search... (i.e. python)">
                                 <div class="input-group-append">
                                     <button id="search-go" class="btn btn-primary py-0" data-toggle="modal" href="#searched" type="button">
                                         <i class="fas fa-search"></i>
@@ -80,11 +80,11 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                                     <i class="fas fa-chevron-circle-down" style="color:#4E74DF"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right p-3 animated-grow-in" aria-labelledby="searchDropdown">
-                                    <form class="form-inline mr-auto navbar-search w-100">
+                                    <form class="form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
                                         <div class="input-group">
-                                            <input id="searc-mMsg" class="bg-light form-control border-0 small" name="search-msg" type="text" placeholder="Search...">
+                                            <input id="search-msg2" class="bg-light form-control border-0 small" name="search-msg2" type="text" placeholder="Search... (i.e. python)">
                                             <div class="input-group-append">
-                                                <button id="search-go" class="btn btn-primary py-0" data-toggle="modal" href="#searched" type="button">
+                                                <button id="search-go2" class="btn btn-primary py-0" data-toggle="modal" href="#searched2" type="button">
                                                     <i class="fas fa-search"></i>
                                                 </button>
                                             </div>
@@ -199,6 +199,20 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
                 <div id="search-content" class="modal-body"></div>
+                <div class="modal-footer">
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="searched2" class="modal fade" role="dialog" style="color: black">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Results</h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div id="search-content2" class="modal-body"></div>
                 <div class="modal-footer">
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>
