@@ -49,9 +49,9 @@
             <label for="Password" class="sr-only">Password</label>
             <label for="Password">Password</label>
         </div>
+        <div class="g-recaptcha mt-3" data-sitekey="6Lfgy-0ZAAAAAMxuE9s4afGVIR4zamGLK7AWI_HK"></div>
         <button class="btn btn-lg btn-danger btn-block mt-3" type="submit">Sign in</button>
         <hr>
-        <div class="g-recaptcha mt-3" data-sitekey="6Lfgy-0ZAAAAAMxuE9s4afGVIR4zamGLK7AWI_HK"></div>
         <div class="text-center">
             <a href="assets/php/register.php">Register</a> |
             <a href="assets/php/reset.php">Forget?</a>
@@ -61,7 +61,7 @@
                 echo($_SESSION["Message"]);
             ?>
         </div>
-        <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class - All Rights Reserved.</p>
+        <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class</p>
     </form>
     <?php
         } else if ($_SESSION["regState"] == 1) { // register page
@@ -97,7 +97,7 @@
                 echo($_SESSION["Message"]);
             ?>
         </div>
-        <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class - All Rights Reserved.</p>
+        <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class</p>
     </form>
     <?php
         } else if ($_SESSION["regState"] == 2) { // password reset
@@ -123,7 +123,7 @@
                 echo($_SESSION["Message"]);
             ?>
         </div>
-        <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class - All Rights Reserved.</p>
+        <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class</p>
     </form>
     <?php
         } else if ($_SESSION["regState"] == 3) { // set password
@@ -153,7 +153,7 @@
                 echo($_SESSION["Message"]);
             ?>
         </div>
-        <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class - All Rights Reserved.</p>
+        <p class="mt-5 text-muted text-center">&copy; 2020 Rate My Class</p>
     </form>
     <?php
         }
