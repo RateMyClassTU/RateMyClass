@@ -1,6 +1,6 @@
 # RateMyClass - A place to leave Temple course reviews
 
-![RateMyClass](https://github.com/RateMyClassTU/RateMyClass/blob/main/RateMyClassLogo.png?raw=true)
+![RateMyClass](https://github.com/RateMyClassTU/RateMyClass/blob/main/assets/img/brand/RateMyClassLogo.png?raw=true)
 
 ## Description
 Rate My Class is a dynamic website for Temple students to view and post reviews for classes in different departments.
