@@ -55,8 +55,16 @@ CREATE TABLE `*your database*`.`ProfessorReviews` (
 ```
 
 ## Server setup
-In addition to setting up the MySQL table, you'll also need to setup your server files. This can be found in assets/php/config.php.
-You will have to provide your server credentials to access the MySQL database. You need to do this so that the code is able to access
-the MySQL tables to do various functions. Examples:
+In addition to setting up the MySQL table, you'll also need to setup your server files. This can be found in assets/php/config.php. You will have to provide your server credentials to access the MySQL database. You need to do this so that the code is able to access the MySQL tables to do various functions. Examples:
 - Authenticating users
 - Getting a users rating
+
+## PyMySQL
+[PyMySQL](https://pypi.org/project/PyMySQL/) is a python package that helps communicate with MySQL. In order to download it, you'll need a python version of 2.7.x and >= 3.5. To check your version, run `python --version` in your terminal. If you do not have the necessary version of python, you can download it [here](https://www.python.org/downloads/).
+
+Please run the command for your version of python in the console:
+##### Python 2.7.x
+`pip install PyMySQL`
+
+##### Python >= 3.5
+`python3 -m pip install PyMySQL`
