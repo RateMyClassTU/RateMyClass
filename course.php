@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Rate My Class | Explore</title>
+    <title>Rate My Class | Courses</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -42,7 +42,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
+                        <a class="nav-link" href="explore.php">
                             <span>Explore</span>
                         </a>
                     </li>
@@ -78,15 +78,20 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-12" style="color: black">
-                            <h1>Explore</h1>
-                            <p>If you're looking for resources regarding Temple's different colleges, you've come to the right place.</p>
+                            <h1>Course</h1>
+                            <div class="input-group">
+                                <input id="courseSearch" class="bg-white form-control small" name="courseSearch" type="text" placeholder="Search for courses...">
+                                <button id="clearCourse" class="btn-dark border-0" type="button">Clear</button>
+                            </div>
+                            <select id="courseSelect" class="form-control mt-2">
+                                <option value='0' selected='true' disabled>Begin by starting a search</option>
+                            </select>
                             <hr>
                             <div class="input-group">
-                                <input id="searchMsg" class="bg-white form-control small" name="searchMsg" type="text" placeholder="Search for courses or descriptions...">
-                                <button id="clearBtn" class="btn-dark border-0" type="button">Clear</button>
+                                <h1 class="bg-light form-control border-0">Results</h1>
+                                <button id="courseReview" data-toggle="modal" class="btn-success border-0" style="width: 150px; border-radius: 0.75rem; display: none" href="#courseModal" type="button">Add Review</button>
                             </div>
-                            <hr>
-                            <div id="searchContent"></div>
+                            <div id="courseContent" class="pl-3 mt-3"></div>
                         </div>
                     </div>
                 </div>
@@ -107,11 +112,32 @@
             </div>
         </div>
     </div>
+    <div id="courseModal" class="modal fade" role="dialog" style="color: black">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Course Review</h5>
+                    <span class="close" data-dismiss="modal" type="button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input id="reviewCourse" class="form-control" disabled>
+                    </div>
+                    <textarea id="userReview" rows="10" class="form-control" wrap="hard" placeholder="Enter text here..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button id="addCourseReview" class="btn btn-danger" disabled>Add Review</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/buttons.js"></script>
+    <script src="assets/js/courses.js"></script>
 </body>
 
 </html>

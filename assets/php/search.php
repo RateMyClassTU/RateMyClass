@@ -28,7 +28,7 @@
 
     if (mysqli_num_rows($result) > 0) {
         $msg = "<h1>Results</h1>";
-        $msg .= "<table style='margin-top: 10px;'>";
+        $msg .= "<table style='margin-top: 10px'>";
         if (mysqli_num_rows($result) > 20) {
             for($i = 0; $i < 20; $i++) {
                 $data = mysqli_fetch_array($result);
