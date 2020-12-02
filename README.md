@@ -14,7 +14,7 @@ Before we begin, you'll need to setup a few things. You'll need
 ## MySQL Script
 To use our code, make sure your database doesn't contain the table "User". Next, take a look at the code below. In the first line, replace the *your database* with the name of the database you'll be using. Then, you will be able to create the table on your database.
 
-
+### Users
 ```
 CREATE TABLE `*your database*`.`User` (
   `ID` INT NOT NULL AUTO_INCREMENT,
@@ -31,7 +31,29 @@ CREATE TABLE `*your database*`.`User` (
   UNIQUE INDEX `ID_UNIQUE` (`ID` ASC),
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC));
 ```
-  
+### Reviews
+```
+CREATE TABLE `*your database*`.`CourseReviews` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Course` VARCHAR(128) NOT NULL,
+  `Username` VARCHAR(45) NOT NULL,
+  `Comment` VARCHAR(512) NOT NULL,
+  `Upvotes` INT NOT NULL DEFAULT 0,
+  `Downvotes` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+```
+```
+CREATE TABLE `*your database*`.`ProfessorReviews` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Professor` VARCHAR(45) NOT NULL,
+  `Comment` VARCHAR(512) NOT NULL,
+  `Upvotes` INT NOT NULL DEFAULT 0,
+  `Downvotes` INT NOT NULL DEFAULT 0,
+  PRIMARY KEY(`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+```
+
 ## Server setup
 In addition to setting up the MySQL table, you'll also need to setup your server files. This can be found in assets/php/config.php.
 You will have to provide your server credentials to access the MySQL database. You need to do this so that the code is able to access
