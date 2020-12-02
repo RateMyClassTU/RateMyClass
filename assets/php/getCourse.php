@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("config2.php");
+    require_once("config.php");
 
     $Message = $_POST["Message"];
     $con = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
@@ -11,15 +11,9 @@
         exit();
     }
 
-    $query = "SELECT Course
-              FROM BulletinUndergrad
-              WHERE Course
-              LIKE '$Message%'
+    $query = "SELECT Course FROM BulletinUndergrad WHERE Course LIKE '$Message%'
               UNION
-              SELECT Course
-              FROM BulletinGrad
-              WHERE Course
-              LIKE '$Message%';";
+              SELECT Course FROM BulletinGrad WHERE Course LIKE '$Message%';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {

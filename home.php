@@ -1,8 +1,8 @@
 <?php
-session_start();
-if (!isset($_SESSION["regState"])) $_SESSION["regState"] = 0;
-if (!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = 0;
-if ($_SESSION["loggedIn"] != 1) header("location:index.php");
+    session_start();
+    if (!isset($_SESSION["regState"])) $_SESSION["regState"] = 0;
+    if (!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = 0;
+    if ($_SESSION["loggedIn"] != 1) header("location:index.php");
 ?>
 
 <!DOCTYPE html>
@@ -64,41 +64,11 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                         <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button">
                             <i class="fas fa-bars"></i>
                         </button>
-                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <input id="search-msg" class="bg-light form-control border-0 small" name="search-msg" type="text" placeholder="Search... (i.e. python)">
-                                <div class="input-group-append">
-                                    <button id="search-go" class="btn btn-primary py-0" data-toggle="modal" href="#searched" type="button">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
-                            <li class="nav-item dropdown d-sm-none no-arrow">
-                                <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
-                                    <i class="fas fa-chevron-circle-down" style="color:#4E74DF"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right p-3 animated-grow-in" aria-labelledby="searchDropdown">
-                                    <form class="form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100">
-                                        <div class="input-group">
-                                            <input id="search-msg2" class="bg-light form-control border-0 small" name="search-msg2" type="text" placeholder="Search... (i.e. python)">
-                                            <div class="input-group-append">
-                                                <button id="search-go2" class="btn btn-primary py-0" data-toggle="modal" href="#searched2" type="button">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <a class="nav-link" aria-expanded="false" href="assets/php/logout.php">
-                                        <span class="mr-2 text-gray-600">Logout</span>
-                                    </a>
-                                </div>
-                            </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow">
                                     <a class="nav-link" aria-expanded="false" href="assets/php/logout.php">
-                                        <span class="d-none d-sm-inline mr-2 text-gray-600 small">Logout</span>
+                                        <span class="d-sm-inline mr-2 text-gray-600 small">Logout</span>
                                     </a>
                                 </div>
                             </li>
@@ -123,10 +93,10 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                             </div>
                             <div class="row justify-content-center mt-5">
                                 <div class="col-4 feature-box">
-                                    <a id="courseToggleBtn" data-toggle="modal" href="#courseModal">
+                                    <a href="course.php">
                                         <h4>Courses</h4>
                                     </a>
-                                    <p>Search for a course by category</p>
+                                    <p>Want to see course reviews? Search for courses here!</p>
                                 </div>
                                 <div class="col-4 feature-box">
                                     <a id="professorToggleBtn" data-toggle="modal" href="#professorModal">
@@ -185,34 +155,6 @@ if ($_SESSION["loggedIn"] != 1) header("location:index.php");
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
                 <div id="accountInfo" class="modal-body"></div>
-                <div class="modal-footer">
-                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="searched" class="modal fade" role="dialog" style="color: black">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Results</h5>
-                    <span class="close" data-dismiss="modal">&times;</span>
-                </div>
-                <div id="search-content" class="modal-body"></div>
-                <div class="modal-footer">
-                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="searched2" class="modal fade" role="dialog" style="color: black">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Results</h5>
-                    <span class="close" data-dismiss="modal">&times;</span>
-                </div>
-                <div id="search-content2" class="modal-body"></div>
                 <div class="modal-footer">
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>
