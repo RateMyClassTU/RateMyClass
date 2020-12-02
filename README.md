@@ -63,8 +63,13 @@ In addition to setting up the MySQL table, you'll also need to setup your server
 [PyMySQL](https://pypi.org/project/PyMySQL/) is a python package that helps communicate with MySQL. In order to download it, you'll need a python version of 2.7.x and >= 3.5. To check your version, run `python --version` in your terminal. If you do not have the necessary version of python, you can download it [here](https://www.python.org/downloads/).
 
 Please run the command for your version of python in the console:
-##### Python 2.7.x
+#### Python 2.7.x
 `pip install PyMySQL`
 
-##### Python >= 3.5
+#### Python >= 3.5
 `python3 -m pip install PyMySQL`
+
+## Authentication
+For authentication, we used a package, [PHPMailer](https://github.com/PHPMailer/PHPMailer), to allow PHP to send an email to users. In order to do this, you need a email that has low security that you will use for mailing. When you have an email that can use PHPMailer, you'll need edit in your email login and password for:
+- register2.php
+- reset2.php
