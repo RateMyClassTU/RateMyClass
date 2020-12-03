@@ -51,6 +51,17 @@
                             <span>My Account</span>
                         </a>
                     </li>
+                    <?php
+                        if ($_SESSION["admin"] == 1) {
+                    ?>
+                    <li class="nav-item">
+                        <a id="adminBtn" class="nav-link" href="#">
+                            <span>Admin Panel</span>
+                        </a>
+                    </li>
+                    <?php
+                        }
+                    ?>
                 </ul>
                 <div class="text-center d-none d-md-inline">
                     <button class="btn rounded-circle border-0 mt-5" id="sidebarToggle" type="button"></button>
@@ -167,6 +178,13 @@
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/buttons.js"></script>
     <script src="assets/js/courses.js"></script>
+    <?php
+        if ($_SESSION["admin"] == 1) {
+    ?>
+    <script src="assets/js/admin.js"></script>
+    <?php
+        }
+    ?>
 </body>
 
 </html>
