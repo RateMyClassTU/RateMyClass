@@ -1,19 +1,46 @@
+var manageUserBtnCntr = 0;
+var manageAdminBtnCntr = 0;
+
 $(document).ready(function() {
-    // check if the user is an admin
-    $("#adminBtn").click(function() {
-        $.ajax({
-            type: "POST",
-            url: "assets/php/checkStatus.php",
-            dataType: "text"
-        }).done(function(data) {
-            if (data == 'admin') {
-                window.location.href='admin.php';
-            } else {
-                window.location.href='home.php';
-                alert('not admin');
-            }
-        }).fail(function(error) {
-            console.error('Unable to process', error);
-        });
+    
+    // Displays all users
+    $("#manageUserBtn").click(function() {
+        if (manageUserBtnCntr == 0) {
+            manageAdminBtnCntr = 0;
+            manageUserBtnCntr = 1;
+            $.ajax({
+                type: "POST",
+                url: "assets/php/adminUser.php",
+                dataType: "html",
+                success: function(data) {
+                    $("#adminContent").html(data);                    }
+            }).fail(function(error) {
+                console.error('Unable to retrieve user information', error);
+            });
+        } else {
+            manageUserBtnCntr = 0;
+            $("#adminContent").html("");
+        }
     });
+
+    $("#manageAdminBtn").click(function() {
+        if (manageAdminBtnCntr == 0) {
+            manageUserBtnCntr = 0;
+            manageAdminBtnCntr = 1;
+            $.ajax({
+                type: "POST",
+                url: "assets/php/adminAdmin.php",
+                dataType: "html",
+                success: function(data) {
+                    $("#adminContent").html(data);
+                }
+            }).fail(function(error) {
+                console.error('Unable to retrieve user information', error);
+            })
+        } else {
+            manageAdminBtnCntr = 0;
+            $("#adminContent").html("");
+        }
+    })
+
 });

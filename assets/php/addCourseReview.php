@@ -14,7 +14,7 @@
         exit();
     }
 
-    $query = "INSERT INTO CourseReviews (Course, Comment, Username, Upvotes, Downvotes) VALUES ('$Course', '$Comment', '$Username', 0, 0);";
+    $query = "INSERT INTO CourseReviews (Course, Comment, Username, Upvotes, Downvotes) VALUES ('$Course', '$Comment', '$Email', 0, 0);";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
@@ -23,5 +23,6 @@
         exit();
     }
 
+    header("location:../../course.php");
     exit();
 ?>

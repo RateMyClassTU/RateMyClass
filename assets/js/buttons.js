@@ -41,4 +41,17 @@ $(document).ready(function() {
             $("#searchContent").html("");
         }
     });
+
+    $("#adminBtn").click(function() {
+        $.ajax({
+            type: "POST",
+            url: "assets/php/checkStatus.php",
+            dataType: "text",
+            success: function(data) {
+                if (data == 'admin') window.location.href='admin.php';
+            }
+        }).fail(function(error) {
+            console.error('Unable to verify admin status', error);
+        });
+    });
 });
