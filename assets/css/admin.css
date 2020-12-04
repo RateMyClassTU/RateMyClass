@@ -1,0 +1,33 @@
+.navbar.navbar-dark.navbar-expand-md.sticky-top.bg-dark {
+  background-color: rgba(0,0,0,0.9)!important;
+}
+
+.nav-item {
+  margin: 0 10px 0 10px;
+  padding: 0 10px 0 10px;
+}
+
+#serviceHeader {
+  padding: 10px 10px 10px 10px;
+  background-color: rgb(241,241,241);
+}
+
+#consoleHeader {
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+#serviceTab a:hover {
+  color: rgb(22,101,255);
+  cursor: pointer;
+}
+
+#serviceTab a {
+  color: black;
+}
+
+#page-top {
+  background-color: rgb(228,228,228);
+  color: black;
+}
+

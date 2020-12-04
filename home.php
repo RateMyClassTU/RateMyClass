@@ -178,13 +178,6 @@
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/buttons.js"></script>
     <script src="assets/js/courses.js"></script>
-    <?php
-        if ($_SESSION["admin"] == 1) {
-    ?>
-    <script src="assets/js/admin.js"></script>
-    <?php
-        }
-    ?>
 </body>
 
 </html>

@@ -1,108 +1,68 @@
 <?php
     session_start();
-    
-    // set uninitialized variables
+
     if (!isset($_SESSION["regState"])) $_SESSION["regState"] = 0;
     if (!isset($_SESSION["loggedIn"])) $_SESSION["loggedIn"] = 0;
     if (!isset($_SESSION["admin"])) $_SESSION["admin"] = 0;
 
-    // kick user out if bad permissions
     if ($_SESSION["loggedIn"] != 1) header("location:index.php");
     if ($_SESSION["admin"] != 1) header("location:home.php");
-
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Rate My Class | Home</title>
+    <title>Rate My Class</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="assets/img/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="assets/img/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="assets/img/favicon/site.webmanifest">
+    <link rel="stylesheet" href="assets/css/Amazon%20Ember.css">
+    <link rel="stylesheet" href="assets/css/Amazon%20Ember%20Bold.css">
+    <link rel="stylesheet" href="assets/css/Amazon%20Ember%20Light.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 
-<body>
-    <div id="wrapper">
-        <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion p-0">
-            <div class="container-fluid d-flex flex-column p-0">
-                <a class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0" href="#">
-                    <div class="sidebar-brand-icon">
-                        <img src="assets/img/favicon/favicon-32x32.png">
-                    </div>
-                    <div class="sidebar-brand-text mx-3">
-                        <span>Rate My Class</span>
-                    </div>
-                </a>
-                <hr class="sidebar-divider mt-2">
-                <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="home.php">
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <?php
-                        if ($_SESSION["admin"] == 1) {
-                    ?>
-                    <li class="nav-item">
-                        <a id="adminBtn" class="nav-link" href="#">
-                            <span>Admin Panel</span>
-                        </a>
-                    </li>
-                    <?php
-                        }
-                    ?>
+<body id="page-top" style="font-family: 'Amazon Ember';">
+    <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
+        <div class="container-fluid"><a class="navbar-brand js-scroll-trigger" href="#page-top">Rate My Class</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav d-flex flex-grow-1 justify-content-end">
+                    <li class="nav-item"><a class="nav-link" href="home.php">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" id="adminBtn" href="admin.php">Admin Panel</a></li>
                 </ul>
-                <div class="text-center d-none d-md-inline">
-                    <button class="btn rounded-circle border-0 mt-5" id="sidebarToggle" type="button"></button>
-                </div>
             </div>
-        </nav>
-        <div class="d-flex flex-column" id="content-wrapper">
-            <div id="content">
-                <nav class="navbar navbar-light navbar-expand bg-white shadow mb-4 topbar static-top">
-                    <div class="container-fluid">
-                        <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button">
-                            <i class="fas fa-bars"></i>
-                        </button>
-                        <ul class="nav navbar-nav flex-nowrap ml-auto">
-                            <li class="nav-item dropdown no-arrow">
-                                <div class="nav-item dropdown no-arrow">
-                                    <a class="nav-link" aria-expanded="false" href="assets/php/logout.php">
-                                        <span class="d-sm-inline mr-2 text-gray-600 small">Logout</span>
-                                    </a>
-                                </div>
-                            </li>
-                        </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <h1 id="consoleHeader" style="font-size: 42px;font-family: 'Amazon Ember Light';">Console</h1>
+    </div>
+    <div class="container mt-3">
+        <div class="card">
+            <h1 id="serviceHeader" style="font-family: 'Amazon Ember Bold';font-size: 24px;">Services</h1>
+            <div class="card-body" style="font-size: 14px;">
+                <div id="serviceTab" class="row">
+                    <div class="d-flex flex-grow-1 justify-content-center col-6" style="font-size: 15px;font-family: 'Amazon Ember Light';">
+                        <a id="manageUserBtn" href="#">Manage Users</a>
                     </div>
-                </nav>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12 text-center main-body">
-                        </div>
+                    <div class="d-flex flex-grow-1 justify-content-center col-6" style="font-size: 15px;font-family: 'Amazon Ember Light';">
+                        <a id="manageAdminBtn" href="#">Manage Admins</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="container mt-5">
+        <div class="col-12">
+            <div id="adminContent"></div>
+        </div>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/jquery.easing.js"></script>
-    <script src="assets/js/theme.js"></script>
-    <?php
-        if ($_SESSION["admin"] == 1) {
-    ?>
     <script src="assets/js/admin.js"></script>
-    <?php
-        }
-    ?>
 </body>
 
 </html>
