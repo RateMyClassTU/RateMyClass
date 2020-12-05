@@ -23,13 +23,14 @@
 
     if (mysqli_num_rows($result) > 0) {
         while ($data = mysqli_fetch_array($result)) {
-            $msg .= "<table border=1>";
-            $msg .= "<tr><td style='width:450px;'><b>Course - </b>".$data['Course']."</td>";
-            $msg .= "<td style='width:350px;'><b>Posted by - </b>".$data['Username']."</td>";
-            $msg .= "<td style='width:200px;'><b>Upvotes - </b>".$data['Upvotes']."</td>";
-            $msg .= "<td style='width:200px;'><b>Downvotes - </b>".$data['Downvotes']."</td>";
+            $msg .= "<div class='table-responsive table-bordered mb-5'>";
+            $msg .= "<table class='table table-striped table-bordered'>";
+            $msg .= "<tr><td><b>Course: </b>".$data['Course']."</td>";
+            $msg .= "<td><b>Posted by: </b>".$data['Username']."</td>";
+            $msg .= "<td><a href='#'><i class='far fa-thumbs-up'></i></a><b> Upvotes: </b>".$data['Upvotes']."</td>";
+            $msg .= "<td><a href='#'><i class='far fa-thumbs-down'></i></a><b> Downvotes: </b>".$data['Downvotes']."</td>";
             $msg .= "</tr></table>";
-            $msg .= "<div class='col-12 mb-3 pt-3 pl-3' style='border:1px solid black; height:20vh;'>".$data['Comment']."</div>";
+            $msg .= "<div class='col-12' style='height:20vh;'>".$data['Comment']."</div></div>";
         }
     } else {
         $msg = "No results found";
