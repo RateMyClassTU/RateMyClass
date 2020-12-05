@@ -89,7 +89,7 @@ $(document).ready(function() {
             dataType: "text",
             success: function(data) {
                 $("#courseModal").modal("toggle");
-                alert("Successfully added review");
+                $("#courseContent").html(data);
                 
             }
         }).fail(function(error) {

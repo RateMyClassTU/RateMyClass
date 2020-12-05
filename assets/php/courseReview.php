@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("config.php");
+    require_once("config2.php");
 
     $Message = $_POST["Message"];
     $con = mysqli_connect(SERVER, USER, PASSWORD, DATABASE);
@@ -11,7 +11,7 @@
         exit();
     }
 
-    $query = "SELECT * FROM CourseReviews WHERE Course='$Message';";
+    $query = "SELECT * FROM CourseReviews WHERE Course='$Message' ORDER BY ID DESC;";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
