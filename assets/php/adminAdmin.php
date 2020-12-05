@@ -17,19 +17,23 @@
         exit();
     }
 
-    $msg = "<table border=1 class='text-center' style='background-color:white'>";
-    $msg .= "<tr><td style='width:100px; background-color:rgb(241,241,241);'><b>ID</b></td><td style='width:300px; background-color:rgb(241,241,241);'><b>Email</b></td>";
-    $msg .= "<td style='width:150px; background-color:rgb(241,241,241);'><b>First Name</b></td><td style='width:150px; background-color:rgb(241,241,241);'><b>Last Name</b></td>";
-    $msg .= "<td style='width:300px; background-color:rgb(241,241,241);'><b>Actions</b></td></tr>";
+    $msg = "<div class='table-responsive'>";
+    $msg .= "<table class='table table-bordered'>";
+    $msg .= "<tr style='color:black; background-color:#f1f1f1;'><td><b>ID</b></td>";
+    $msg .= "<td><b>Email</b></td>";
+    $msg .= "<td><b>First Name</b></td>";
+    $msg .= "<td><b>Last Name</b></td>";
+    $msg .= "<td><b>Upvotes</b></td>";
+    $msg .= "<td><b>Downvotes</b></td></tr>";
     while ($data = mysqli_fetch_array($result)) {
-        $msg .= "<tr><td style='width:100px;'>".$data['ID']."</td><td class='text-left pl-2' style='width:300px;'>".$data['Email']."</td>";
-        $msg .= "<td style='width:150px;'>".$data['FirstName']."</td><td style='width:150px;'>".$data['LastName']."</td>";
-        $msg .= "<td style='width:300px;'><div class='col-12'>";
-        $msg .= "<ul class='nav'><li class='nav-item'><a id='".$data['ID']."' class='nav-link manageBtn' href='#'>Manage</a></li>";
-        $msg .= "<li id='".$data['ID']."' class='nav-item'><a class='nav-link deleteBtn' href='#'>Delete</a></li></ul>";
-        $msg .= "</div></td></tr>";
+        $msg .= "<tr><td>".$data['ID']."</td>";
+        $msg .= "<td>".$data['Email']."</td>";
+        $msg .= "<td>".$data['FirstName']."</td>";
+        $msg .= "<td>".$data['LastName']."</td>";
+        $msg .= "<td>".$data['Upvotes']."</td>";
+        $msg .= "<td>".$data['Downvotes']."</td></tr>";
     }
-    $msg .= "</table>";
+    $msg .= "</table></div>";
 
     echo($msg);
     exit();

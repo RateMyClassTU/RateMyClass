@@ -23,12 +23,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/admin.css">
 </head>
 
 <body id="page-top" style="font-family: 'Amazon Ember';">
     <nav class="navbar navbar-dark navbar-expand-md sticky-top bg-dark">
-        <div class="container-fluid"><a class="navbar-brand js-scroll-trigger" href="#page-top">Rate My Class</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        <div class="container-fluid">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Rate My Class</a>
+            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="navbar-toggler-icon"></span>
+            </button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav d-flex flex-grow-1 justify-content-end">
                     <li class="nav-item"><a class="nav-link" href="home.php">Dashboard</a></li>
@@ -56,9 +62,7 @@
         </div>
     </div>
     <div class="container mt-5">
-        <div class="col-12">
-            <div id="adminContent"></div>
-        </div>
+        <div id="adminContent"></div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
