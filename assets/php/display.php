@@ -11,7 +11,11 @@
         exit();
     }
 
-    $query = "SELECT * FROM User WHERE Email='$Email';";
+    $query = "SELECT U.Email AS Email, U.FirstName AS FirstName, U.LastName AS LastName, count(CR.Username) AS Posts, IFNULL(sum(CR.Upvotes), '0') AS Upvotes, IFNULL(sum(CR.Downvotes), '0') AS Downvotes
+              FROM Users U
+              LEFT OUTER JOIN CourseReviews CR
+              ON U.Email=CR.Username
+              WHERE U.Email='$Email';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
