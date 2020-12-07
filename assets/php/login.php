@@ -29,7 +29,7 @@
         exit();
     }
 
-    $query = "SELECT * FROM User WHERE Password='$Password' AND Email='$Email';";
+    $query = "SELECT * FROM Users WHERE Password='$Password' AND Email='$Email';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
@@ -50,6 +50,9 @@
     if ($data['Status'] == 2) {
         $_SESSION["admin"] = 1;
     }
+    $LIdatetime = date("Y-m-d H:i:s");
+    $query = "UPDATE Users SET LIdatetime='$LIdatetime' WHERE Email='$Email';";
+    $result = mysqli_query($con, $query);
 
     $_SESSION["Email"] = $Email;
     $_SESSION["regState"] = 0;
