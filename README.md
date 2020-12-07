@@ -16,7 +16,7 @@ To use our code, make sure your database doesn't contain the table "User". Next,
 
 ### Users
 ```
-CREATE TABLE `*your database*`.`User` (
+CREATE TABLE `*your database*`.`Users` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `FirstName` VARCHAR(45) NOT NULL,
   `LastName` VARCHAR(45) NOT NULL,
@@ -25,11 +25,14 @@ CREATE TABLE `*your database*`.`User` (
   `Acode` VARCHAR(45) NULL,
   `Rdatetime` DATETIME NULL,
   `Adatetime` DATETIME NULL,
-  `Upvotes` INT NOT NULL DEFAULT 0,
-  `Downvotes` INT NOT NULL DEFAULT 0,
+  `Status` INT NULL DEFAULT 0,
+  `LIdatetime` DATETIME NULL,
+  `LOdatetime` DATETIME NULL,
+  `Reported` INT NULL DEFAULT 0,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `ID_UNIQUE` (`ID` ASC),
-  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC));
+  UNIQUE INDEX `Email_UNIQUE` (`Email` ASC)
+);
 ```
 ### Reviews
 ```
@@ -41,17 +44,80 @@ CREATE TABLE `*your database*`.`CourseReviews` (
   `Upvotes` INT NOT NULL DEFAULT 0,
   `Downvotes` INT NOT NULL DEFAULT 0,
   PRIMARY KEY (`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC)
+);
 ```
 ```
 CREATE TABLE `*your database*`.`ProfessorReviews` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `Professor` VARCHAR(45) NOT NULL,
   `Comment` VARCHAR(512) NOT NULL,
+  `Username` VARCHAR(45) NOT NULL,
   `Upvotes` INT NOT NULL DEFAULT 0,
   `Downvotes` INT NOT NULL DEFAULT 0,
+  `CourseCode` VARCHAR(45) NOT NULL,
   PRIMARY KEY(`ID`),
-  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC));
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC)
+);
+```
+
+### Courses
+```
+CREATE TABLE `*your database*`.`BulletinGrad` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `College` VARCHAR(256) NULL,
+  `Department` VARCHAR(256) NULL,
+  `Course` VARCHAR(256) NULL,
+  `Description` VARCHAR(1024) NULL,
+  PRIMARY KEY(`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC))
+);
+```
+```
+CREATE TABLE `*your database*`.`BulletinUndergrad` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `College` VARCHAR(256) NULL,
+  `Department` VARCHAR(256) NULL,
+  `Course` VARCHAR(256) NULL,
+  `Description` VARCHAR(1024) NULL,
+  PRIMARY KEY(`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC)
+);
+```
+```
+CREATE TABLE `*your database*`.`AddedCourses` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Course` VARCHAR(256) NULL,
+  `Description` VARCHAR(1024) NULL,
+  `Username` VARCHAR(45) NULL,
+  `Udatetime` DATETIME NULL,
+  PRIMARY KEY(`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC)
+);
+```
+### Professors
+```
+CREATE TABLE `*your database*`.`AddedProfessors` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Professor` VARCHAR(128) NOT NULL,
+  `Username` VARCHAR(45) NULL,
+  `Udatetime` DATETIME NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC)
+);
+```
+
+### Reports
+```
+CREATE TABLE `*your database`.`Reports` (
+  `ID` INT NOT NULL AUTO_INCREMENT,
+  `Username` VARCHAR(45) NOT NULL,
+  `RUsername` VARCHAR(45) NOT NULL,
+  `Comment` VARCHAR(512) NULL,
+  `Rdatetime` DATETIME NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE INDEX `ID_UNIQUE` (`ID` ASC)
+);
 ```
 
 ## Server setup

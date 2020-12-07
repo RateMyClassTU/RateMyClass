@@ -20,9 +20,6 @@
     <link rel="stylesheet" href="assets/css/Amazon%20Ember.css">
     <link rel="stylesheet" href="assets/css/Amazon%20Ember%20Bold.css">
     <link rel="stylesheet" href="assets/css/Amazon%20Ember%20Light.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/admin.css">
 </head>
@@ -51,11 +48,25 @@
             <h1 id="serviceHeader" style="font-family: 'Amazon Ember Bold';font-size: 24px;">Services</h1>
             <div class="card-body" style="font-size: 14px;">
                 <div id="serviceTab" class="row">
-                    <div class="d-flex flex-grow-1 justify-content-center col-6" style="font-size: 15px;font-family: 'Amazon Ember Light';">
-                        <a id="manageUserBtn" href="#">Manage Users</a>
+                    <div class="d-flex flex-grow-1 justify-content-center col-6" style="font-size: 16px;font-family: 'Amazon Ember Light';">
+                        <ul class="serviceGroup">
+                            <li class="serviceLink">
+                                <a id="showUserBtn" href="#">Show Users</a>
+                            </li>
+                            <li class="serviceLink">
+                                <a id="showAdminBtn" href="#">Show Admins</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="d-flex flex-grow-1 justify-content-center col-6" style="font-size: 15px;font-family: 'Amazon Ember Light';">
-                        <a id="manageAdminBtn" href="#">Manage Admins</a>
+                    <div class="d-flex flex-grow-1 justify-content-center col-6" style="font-size: 16px;font-family: 'Amazon Ember Light';">
+                        <ul class="serviceGroup">
+                            <li class="serviceLink">
+                                <a id="showReportBtn" href="#">Check Reports</a>
+                            </li>
+                            <li class="serviceLink">
+                                <a id="manageUserBtn" data-toggle="modal" href="#manageUser">Manage User</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -63,6 +74,39 @@
     </div>
     <div class="container mt-5">
         <div id="adminContent"></div>
+    </div>
+    <div id="manageUser" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">User Management</h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input id="userSearch" class="bg-white form-control small" type="text" placeholder="Email">
+                        <button id="clearBtn" class="btn-dark border-0" type="button" style="width:75px;">Clear</button>
+                    </div>
+                    <div class="input-group">
+                        <select id="userSelect" class="form-control">
+                            <option value="0" selected="true">Search and select user</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <select id="actionSelect" class="form-control">
+                            <option value="0" selected="true">Select action</option>
+                            <option value="promoteUser">Promote</option>
+                            <option value="demoteUser">Demote</option>
+                            <option value="deleteUser">Delete</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="executeActionBtn" class="btn btn-primary" type="button">Execute</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Cancel</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
