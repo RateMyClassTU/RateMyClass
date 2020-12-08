@@ -33,9 +33,10 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="nav navbar-nav d-flex flex-grow-1 justify-content-end">
+                <ul class="nav navbar-nav d-flex flex-grow-1 justify-content-end align-items-end">
                     <li class="nav-item"><a class="nav-link" href="home.php">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link" id="adminBtn" href="admin.php">Admin Panel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="assets/php/logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -102,7 +103,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button id="executeActionBtn" class="btn btn-primary" type="button">Execute</button>
+                    <button id="executeActionBtn" class="btn btn-danger" type="button">Execute</button>
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Cancel</button>
                 </div>
             </div>
