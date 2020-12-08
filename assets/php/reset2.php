@@ -36,7 +36,7 @@
         exit();
     }
 
-    $query = "SELECT * FROM User WHERE Email='$Email';";
+    $query = "SELECT * FROM Users WHERE Email='$Email';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
@@ -55,7 +55,7 @@
 
     $Acode = rand();
 
-    $query = "UPDATE User SET Acode='$Acode' WHERE Email='$Email';";
+    $query = "UPDATE Users SET Acode='$Acode' WHERE Email='$Email';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {

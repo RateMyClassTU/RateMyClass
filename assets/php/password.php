@@ -24,7 +24,7 @@
 
     $Acode = rand();
 
-    $query = "UPDATE User SET Password='$Password', Acode='$Acode', Status='1' WHERE Email='$Email';";
+    $query = "UPDATE Users SET Password='$Password', Acode='$Acode', Status='1' WHERE Email='$Email';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
