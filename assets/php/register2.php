@@ -41,7 +41,7 @@
     $Rdatetime = date("Y-m-d H:i:s");
     $Acode = rand();
 
-    $query = "INSERT INTO User (Email, FirstName, LastName, Rdatetime, Acode) VALUES ('$Email', '$FirstName', '$LastName', '$Rdatetime', '$Acode');";
+    $query = "INSERT INTO Users (Email, FirstName, LastName, Rdatetime, Acode) VALUES ('$Email', '$FirstName', '$LastName', '$Rdatetime', '$Acode');";
     $result = mysqli_query($con, $query);
 
     if (!$result) {

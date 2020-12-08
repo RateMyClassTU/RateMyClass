@@ -16,7 +16,7 @@
 
     $Adatetime = date("Y-m-d H:i:s");
 
-    $query = "SELECT * FROM User WHERE Email='$Email' AND Acode='$Acode';";
+    $query = "SELECT * FROM Users WHERE Email='$Email' AND Acode='$Acode';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
