@@ -13,7 +13,9 @@
 
     $query = "SELECT Course FROM BulletinUndergrad WHERE Course LIKE '$Message%'
               UNION
-              SELECT Course FROM BulletinGrad WHERE Course LIKE '$Message%';";
+              SELECT Course FROM BulletinGrad WHERE Course LIKE '$Message%'
+              UNION
+              SELECT Course FROM AddedCourses WHERE Course LIKE '$Message%';";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
