@@ -100,6 +100,9 @@
                             <hr>
                             <div class="input-group">
                                 <h1 class="bg-light form-control border-0">Results</h1>
+                                <button id="addCourseBtn" class="btn btn-light" style="border:1px solid black; margin-right:10px;" data-toggle="modal" href="#addCourseModal">Add Courses</button>
+                                <button id="courseUpvote" data-toggle="modal" class="btn btn-primary" style="width:50px; margin-right:10px;" href="#courseUpvoteModal" hidden><i class='far fa-thumbs-up'></i></button>
+                                <button id="courseDownvote" data-toggle="modal" class="btn btn-danger" style="width:50px; margin-right:10px;" href="#courseDownvoteModal" hidden><i class='far fa-thumbs-down'></i></button>
                                 <button id="courseReview" data-toggle="modal" class="btn-success border-0" style="width: 150px; border-radius: 0.75rem; display: none" href="#courseModal" type="button">Add Review</button>
                             </div>
                             <div id="courseContent" class="pl-3 mt-3"></div>
@@ -123,6 +126,30 @@
             </div>
         </div>
     </div>
+    <div id="addCourseModal" class="modal fade" role="dialog" style="color:black;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Course</h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="container mb-3">
+                        <label for="addCourseName">Course</label>
+                        <input class="form-control" name="addCourseName" placeholder="Enter the name of the course">
+                    </div>
+                    <div class="container mt-3">
+                        <label for="addCourseDesc">Course Description</label>
+                        <input class="form-control" name="addCourseDesc" placeholder="Add a course description">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="addCourse" class="btn btn-primary" type="button">Submit</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="courseModal" class="modal fade" role="dialog" style="color: black">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -138,6 +165,42 @@
                 </div>
                 <div class="modal-footer">
                     <button id="addCourseReview" class="btn btn-danger" disabled>Add Review</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="courseUpvoteModal" class="modal fade" role="dialog" style="color:black;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Upvote</h5>
+                    <span class="close" data-dismiss="modal" type="button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <label for="upReviewID">Review ID</label>
+                    <input class="form-control" name="upReviewID" placeholder="Enter the ID of the review to upvote">
+                </div>
+                <div class="modal-footer">
+                    <button id="courseUpvoteBtn" class="btn btn-primary" type="button">Submit</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="courseDownvoteModal" class="modal fade" role="dialog" style="color:black;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Downvote</h5>
+                    <span class="close" data-dismiss="modal" type="button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <label for="downReviewID">Review ID</label>
+                    <input class="form-control" name="downReviewID" placeholder="Enter the ID of the review to downvote">
+                </div>
+                <div class="modal-footer">
+                    <button id="courseDownvoteBtn" class="btn btn-primary" type="button">Submit</button>
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>
             </div>
