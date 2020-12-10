@@ -116,11 +116,18 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">My Account</h5>
+                    <h5 class="modal-title">
+                        <span>My Account</span>
+                        <button id="settingBtn" class="border-0" style="background-color:#0000; color:grey;"><i class="fas fa-cog"></i></i></button>
+                    </h5>
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
                 <div id="accountInfo" class="modal-body"></div>
                 <div class="modal-footer">
+                    <input class="form-control" name="newEmail" placeholder="New email here" hidden>
+                    <input type="password" class="form-control" name="oldPassword" placeholder="Old password goes here" hidden>
+                    <input type="password" class="form-control" name="newPassword" placeholder="Enter new password here" hidden>
+                    <button id="submitChange" class="btn btn-primary" type="button" hidden>Save Changes</button>
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>
             </div>

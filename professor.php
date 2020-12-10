@@ -47,10 +47,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <span>Professors</span>
+                        <a id="accountBtn" class="nav-link" data-toggle="modal" href="#accountModal">
+                            <span>My Account</span>
                         </a>
                     </li>
+                    <?php
+                        if ($_SESSION["admin"] == 1) {
+                    ?>
+                    <li class="nav-item">
+                        <a id="adminBtn" class="nav-link" href="#">
+                            <span>Admin Panel</span>
+                        </a>
+                    </li>
+                    <?php
+                        }
+                    ?>
                 </ul>
                 <div class="text-center d-none d-md-inline">
                     <button class="btn rounded-circle border-0 mt-5" id="sidebarToggle" type="button"></button>
@@ -64,41 +75,11 @@
                         <button class="btn btn-link d-md-none rounded-circle mr-3" id="sidebarToggleTop" type="button">
                             <i class="fas fa-bars"></i>
                         </button>
-                        <form class="form-inline d-none d-sm-inline-block mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                            <div class="input-group">
-                                <input class="bg-light form-control border-0 small" type="text" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary py-0" type="button">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
                         <ul class="nav navbar-nav flex-nowrap ml-auto">
-                            <li class="nav-item dropdown d-sm-none no-arrow">
-                                <a class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false" href="#">
-                                    <i class="fas fa-chevron-circle-down" style="color:#4E74DF"></i>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right p-3 animated-grow-in" aria-labelledby="searchDropdown">
-                                    <form class="form-inline mr-auto navbar-search w-100">
-                                        <div class="input-group">
-                                            <input class="bg-light form-control border-0 small" type="text" placeholder="Search...">
-                                            <div class="input-group-append">
-                                                <button class="btn btn-primary py-0" type="button">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                    <a class="nav-link" aria-expanded="false" href="assets/php/logout.php">
-                                        <span class="mr-2 text-gray-600">Logout</span>
-                                    </a>
-                                </div>
-                            </li>
                             <li class="nav-item dropdown no-arrow">
                                 <div class="nav-item dropdown no-arrow">
                                     <a class="nav-link" aria-expanded="false" href="assets/php/logout.php">
-                                        <span class="d-none d-sm-inline mr-2 text-gray-600 small">Logout</span>
+                                        <span class="d-sm-inline mr-2 text-gray-600 small">Logout</span>
                                     </a>
                                 </div>
                             </li>
@@ -106,30 +87,100 @@
                     </div>
                 </nav>
                 <div class="container-fluid">
-                    <div class="row courseOverlay">
-                        <div class="col-12">
-                            <label for="courseCategory">Choose a category:</label>
-                            <br>
-                            <select name="courseCategory" id="courseCategory">
-                                <option value="none">-</option>
-                                <option value="CS">Computer Science</option>
+                    <div class="row">
+                        <div class="col-12" style="color: black">
+                            <h1>Professor</h1>
+                            <div class="input-group">
+                                <input id="pSearch" class="bg-white form-control small" name="pSearch" type="text" placeholder="Search for professors...">
+                                <button id="clearP" class="btn-dark border-0" type="button">Clear</button>
+                            </div>
+                            <select id="pSelect" class="form-control mt-2">
+                                <option value='0' selected='true' disabled>Begin by starting a search</option>
                             </select>
                             <hr>
-                            <label for="courseSelect">Choose a professor:</label>
-                            <br>
-                            <select name="courseSelect" id="courseSelect">
-                                <option value="noClass">-</option>
-                            </select>
+                            <div class="input-group">
+                                <h1 class="bg-light form-control border-0">Results</h1>
+                                <button id="pReview" data-toggle="modal" class="btn-success border-0" style="width:150px; border-radius:0.75rem; display:none" href="#pModal" type="button">Add Review</button>
+                                <button id="pAdd" data-toggle="modal" class="btn-danger border-0 ml-2" style="width:150px; border-radius:0.75rem;" href="#pAddModal" type="button">Add Professor</button>
+                            </div>
+                            <div id="pContent" class="pl-3 mt-3"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="accountModal" class="modal fade" role="dialog" style="color: black">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <span>My Account</span>
+                        <button id="settingBtn" class="border-0" style="background-color:#0000; color:grey;"><i class="fas fa-cog"></i></i></button>
+                    </h5>
+                    <span class="close" data-dismiss="modal">&times;</span>
+                </div>
+                <div id="accountInfo" class="modal-body"></div>
+                <div class="modal-footer">
+                    <input class="form-control" name="newEmail" placeholder="New email here" hidden>
+                    <input type="password" class="form-control" name="oldPassword" placeholder="Old password goes here" hidden>
+                    <input type="password" class="form-control" name="newPassword" placeholder="Enter new password here" hidden>
+                    <button id="submitChange" class="btn btn-primary" type="button" hidden>Save Changes</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pModal" class="modal fade" role="dialog" style="color:black">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Professor Review</h5>
+                    <span class="close" data-dismiss="modal" type="button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input id="reviewP" class="form-control" disabled>
+                    </div>
+                    <textarea id="userReview" rows="10" class="form-control" wrap="hard" placeholder="Enter text here..."></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button id="addPReview" class="btn btn-danger" disabled>Add Review</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pAddModal" class="modal fade" role="dialog" style="color:black;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add Professor</h5>
+                    <span class="close" data-dismiss="modal" type="button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="input-group">
+                        <label for="pName" class="sr-only">Professor name</label>
+                        <input id="pName" class="form-control" name="pName" placeholder="Enter professor name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="addProfessor" class="btn btn-danger">Add Professor</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/jquery.easing.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="assets/js/buttons.js"></script>
+    <script src="assets/js/professors.js"></script>
 </body>
 
 </html>
