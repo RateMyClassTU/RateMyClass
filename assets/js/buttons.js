@@ -7,6 +7,15 @@ $(document).ready(function() {
 
     $("#accountBtn").click(function(e) {
         e.preventDefault();
+
+        $("#submitChange").attr("hidden", "hidden");
+        $("input[name=newEmail]").attr("hidden", "hidden");
+        $("input[name=oldPassword]").attr("hidden", "hidden");
+        $("input[name=newPassword]").attr("hidden", "hidden");
+        $("input[name=newEmail]").val("");
+        $("input[name=oldPassword]").val("");
+        $("input[name=newPassword]").val("");
+
         $.ajax({
             type: "POST",
             url: "assets/php/display.php",
@@ -54,4 +63,72 @@ $(document).ready(function() {
             console.error('Unable to verify admin status', error);
         });
     });
+
+    // edit account information
+    $("#settingBtn").click(function() {
+        $("#submitChange").removeAttr("hidden");
+        $("input[name=newEmail]").removeAttr("hidden");
+        $("input[name=oldPassword]").removeAttr("hidden");
+        $("input[name=newPassword]").removeAttr("hidden");
+    });
+
+    $("#submitChange").click(function() {
+        // change password only
+        if ($("input[name=newEmail]").val() == "" && $("input[name=oldPassword]").val() != "" && $("input[name=newPassword]").val() != "") {
+            var formData = {
+                "oldPassword": $("input[name=oldPassword]").val(),
+                "newPassword": $("input[name=newPassword").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "assets/php/userChangePassword.php",
+                data: formData,
+                dataType: "text",
+                success: function(data) {
+                    alert(data);
+                }
+            }).fail(function(error) {
+                console.log(error);
+            });
+        }
+
+        // change email only
+        if ($("input[name=newEmail]").val() != "" && $("input[name=oldPassword]").val() == "" && $("input[name=newPassword]").val() == "") {
+            var formData = {
+                "newEmail": $("input[name=newEmail]").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "assets/php/userChangeEmail.php",
+                data: formData,
+                dataType: "text",
+                success: function(data) {
+                    alert(data);
+                }
+            }).fail(function(error) {
+                console.log(error);
+            });
+        }
+
+        // change both email / password
+        if ($("input[name=newEmail]").val() != "" && $("input[name=oldPassword]").val() != "" && $("input[name=newPassword]").val() != "") {
+            var formData = {
+                "newEmail": $("input[name=newEmail]").val(),
+                "oldPassword": $("input[name=oldPassword]").val(),
+                "newPassword": $("input[name=newPassword]").val()
+            };
+            $.ajax({
+                type: "POST",
+                url: "assets/php/userChangeInfo.php",
+                data: formData,
+                dataType: "text",
+                success: function(data) {
+                    alert(data);
+                }
+            }).fail(function(error) {
+                console.log(error);
+            });
+        }
+    });
+
 });
