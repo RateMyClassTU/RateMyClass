@@ -12,7 +12,7 @@ Before we begin, you'll need to setup a few things. You'll need
 - PyMySQL (python package)
 
 ## MySQL Script
-To use our code, make sure your database doesn't contain the table "User". Next, take a look at the code below. In the first line, replace the *your database* with the name of the database you'll be using. Then, you will be able to create the table on your database.
+To use our code, make sure your database doesn't contain the table "Users". Next, take a look at the code below. In the first line, replace the *your database* with the name of the database you'll be using. Then, you will be able to create the table on your database.
 
 ### Users
 ```
@@ -121,7 +121,7 @@ CREATE TABLE `*your database`.`Reports` (
 ```
 
 ## Server setup
-In addition to setting up the MySQL table, you'll also need to setup your server files. This can be found in assets/php/config.php. You will have to provide your server credentials to access the MySQL database. You need to do this so that the code is able to access the MySQL tables to do various functions. Examples:
+In addition to setting up the MySQL table, you'll also need to setup your server files. This can be found in `assets/php/config.php`. You will have to provide your server credentials to access the MySQL database. You need to do this so that the code is able to access the MySQL tables to do various functions. Examples:
 - Authenticating users
 - Getting a users rating
 
@@ -139,3 +139,17 @@ Please run the command for your version of python in the console:
 For authentication, we used a package, [PHPMailer](https://github.com/PHPMailer/PHPMailer), to allow PHP to send an email to users. In order to do this, you need a email that has low security that you will use for mailing. When you have an email that can use PHPMailer, you'll need edit in your email login and password for:
 - register2.php
 - reset2.php
+
+## How to run?
+Running this project is simple. First, you need to down this project. After using your text editor of choice and configuring some files, you simply upload the files to your web server. Next, you need to make your account an admin by following the next step.
+
+## Managing the server
+Every server needs someone to manage it. To start, you need to establish someone as an admin. This can be done by logging into the MySQL database and running the query:
+`UPDATE Users SET Status=2 WHERE Email='*your login email*';`
+
+## Recap
+Again, you need to edit some files to make it work for you. These are:
+  - MySQL scripts must all be edited to work with your database
+  - config.php must be edited with your MySQL server information
+  - register2.php and reset2.php must be changed with your PHPMailer information (to send verification emails)
+  
