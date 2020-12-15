@@ -9,7 +9,12 @@
         exit();
     }
 
-    $query = "SELECT * FROM Users ORDER BY Reported DESC;";
+    $query = "SELECT U.ID AS ID, U.Email AS Email, U.FirstName AS FirstName, U.LastName AS LastName, IFNULL(count(R.UID), '0') AS Reports
+              FROM Users U
+              LEFT OUTER JOIN Reports R
+              ON U.ID=R.UID
+              GROUP BY ID
+              ORDER BY Reports DESC;";
     $result = mysqli_query($con, $query);
 
     if (!$result) {
@@ -31,7 +36,7 @@
         $msg .= "<td>".$data['Email']."</td>";
         $msg .= "<td>".$data['FirstName']."</td>";
         $msg .= "<td>".$data['LastName']."</td>";
-        $msg .= "<td>".$data['Reported']."</td>";
+        $msg .= "<td>".$data['Reports']."</td>";
     }
 
     $msg .= "</table></div>";
