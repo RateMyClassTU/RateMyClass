@@ -237,14 +237,14 @@
                     <h5 class="modal-title">Add Professor</h5>
                     <span class="close" data-dismiss="modal" type="button">&times;</span>
                 </div>
-            </div>
-            <div class="modal-body">
-                <label for="professorName">Professor Name</label>
-                <input id="professorName" class="form-control" placeholder="Enter the professor's name">
-            </div>
-            <div class="modal-footer">
-                <button id="addProfessorBtn" class="btn btn-primary" type="button">Submit</button>
-                <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                <div class="modal-body">
+                    <label for="professorName">Professor Name</label>
+                    <input id="professorName" class="form-control" placeholder="Enter the professor's name">
+                </div>
+                <div class="modal-footer">
+                    <button id="addProfessorBtn" class="btn btn-primary" type="button">Submit</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
             </div>
         </div>
     </div>
