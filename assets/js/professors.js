@@ -229,5 +229,35 @@ $(document).ready(function () {
     //Get the professor reviews for stats table
 
 
+    // REPORT BUTTONS
+
+    $("#reportBtn").click(function() { // clear the modal
+        $("#professorID").val("");
+        $("#reportComment").val("");
+    });
+
+    $("#reportSubmit").click(function() {
+        if ($("#professorID").val() == "") {
+            alert("Enter a review id and try again");
+            return;
+        }
+
+        var formData = {
+            "ID": $("#professorID").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/professorReport.php",
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                alert(data);
+                $("#reportModal").modal("toggle");
+            }
+        }).fail(function(error) {
+            console.error("Unable to process request", error);
+        });
+    });
 });
 
