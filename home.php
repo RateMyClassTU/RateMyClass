@@ -170,7 +170,6 @@
                 </div>
                 <div id="accountInfo" class="modal-body"></div>
                 <div class="modal-footer">
-                    <input class="form-control" name="newEmail" placeholder="New email here" hidden>
                     <input type="password" class="form-control" name="oldPassword" placeholder="Old password goes here" hidden>
                     <input type="password" class="form-control" name="newPassword" placeholder="Enter new password here" hidden>
                     <button id="submitChange" class="btn btn-primary" type="button" hidden>Save Changes</button>

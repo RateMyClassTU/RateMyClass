@@ -120,8 +120,8 @@
                             <div class="input-group">                         
                                 <h1 class="bg-light form-control border-0">Results</h1>
                                 <button id="addProfessor" data-toggle="modal" class="btn btn-light" style="border:1px solid black; margin-right:10px" href="#addProfessorModal">Add Professor</button>
-                                <button id="pUpvote" data-toggle="modal" class="btn btn-primary" style="width:50px; margin-right:10px;" href="#pUpvoteModal" ><i class='far fa-thumbs-up'></i></button>
-                                <button id="pDownvote" data-toggle="modal" class="btn btn-danger" style="width:50px; margin-right:10px;" href="#pDownvoteModal"><i class='far fa-thumbs-down'></i></button>
+                                <button id="pUpvote" data-toggle="modal" class="btn btn-primary" style="width:50px; margin-right:10px;" href="#pUpvoteModal" hidden><i class='far fa-thumbs-up'></i></button>
+                                <button id="pDownvote" data-toggle="modal" class="btn btn-danger" style="width:50px; margin-right:10px;" href="#pDownvoteModal" hidden><i class='far fa-thumbs-down'></i></button>
                                 <button id="pReview" data-toggle="modal" class="btn-success border-0" style="width: 150px; border-radius: 0.75rem; display: none" href="#pModal" type="button">Add Review</button>
                             </div>
                             <div id="pContent" class="pl-3 mt-3"></div>
@@ -138,11 +138,17 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">My Account</h5>
+                    <h5 class="modal-title">
+                        <span>My Account</span>
+                        <button id="settingBtn" class="border-0" style="background-color:#0000; color:grey;"><i class="fas fa-cog"></i></i></button>
+                    </h5>
                     <span class="close" data-dismiss="modal">&times;</span>
                 </div>
                 <div id="accountInfo" class="modal-body"></div>
                 <div class="modal-footer">
+                    <input type="password" class="form-control" name="oldPassword" placeholder="Old password goes here" hidden>
+                    <input type="password" class="form-control" name="newPassword" placeholder="Enter new password here" hidden>
+                    <button id="submitChange" class="btn btn-primary" type="button" hidden>Save Changes</button>
                     <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
                 </div>
             </div>
