@@ -52,6 +52,11 @@
                             <span>My Account</span>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a id="reportBtn" class="nav-link" data-toggle="modal" href="#reportModal">
+                            </span>Report Review</span>
+                        </a>
+                    </li>
                     <?php
                         if ($_SESSION["admin"] == 1) {
                     ?>
@@ -240,6 +245,27 @@
             <div class="modal-footer">
                 <button id="addProfessorBtn" class="btn btn-primary" type="button">Submit</button>
                 <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+            </div>
+        </div>
+    </div>
+    <div id="reportModal" class="modal fade" role="dialog" style="color:black;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Report a review</h5>
+                    <span class="close" data-dismiss="modal" type="button">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <label for="professorID">Review ID</label>
+                    <input id="professorID" class="form-control" placeholder="Enter the review id">
+                    <br>
+                    <label for="reportComment">Comment</label>
+                    <textarea id="reportCommment" rows="10" class="form-control" wrap="hard" placeholder="Enter additional comments here"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button id="reportSubmit" class="btn btn-danger" type="button">Submit</button>
+                    <button class="btn btn-dark" data-dismiss="modal" type="button">Close</button>
+                </div>
             </div>
         </div>
     </div>
