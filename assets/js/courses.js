@@ -190,6 +190,37 @@ $(document).ready(function() {
             console.error('Unable to process', error);
         });
     });
-    
+
+    // REPORT BUTTONS
+
+    $("#reportBtn").click(function() { // clear the modal
+        $("#courseID").val("");
+        $("#reportComment").val("");
+    });
+
+    $("#reportSubmit").click(function() {
+        if ($("#courseID").val() == "") {
+            alert("Enter a review id and try again");
+            return;
+        }
+
+        var formData = {
+            "ID": $("#courseID").val(),
+            "Comment": $("#reportComment").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/courseReport.php",
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                alert(data);
+                $("#reportModal").modal("toggle");
+            }
+        }).fail(function(error) {
+            console.error("Unable to process request", error);
+        });
+    });
 });
 
