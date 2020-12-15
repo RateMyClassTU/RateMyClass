@@ -243,7 +243,8 @@ $(document).ready(function () {
         }
 
         var formData = {
-            "ID": $("#professorID").val()
+            "ID": $("#professorID").val(),
+            "Comment": $("#reportComment").val()
         };
 
         $.ajax({
