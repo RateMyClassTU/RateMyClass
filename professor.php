@@ -260,7 +260,7 @@
                     <input id="professorID" class="form-control" placeholder="Enter the review id">
                     <br>
                     <label for="reportComment">Comment</label>
-                    <textarea id="reportCommment" rows="10" class="form-control" wrap="hard" placeholder="Enter additional comments here"></textarea>
+                    <textarea id="reportComment" rows="10" class="form-control" wrap="hard" placeholder="Enter additional comments here"></textarea>
                 </div>
                 <div class="modal-footer">
                     <button id="reportSubmit" class="btn btn-danger" type="button">Submit</button>
