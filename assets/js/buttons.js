@@ -9,10 +9,10 @@ $(document).ready(function() {
         e.preventDefault();
 
         $("#submitChange").attr("hidden", "hidden");
-        $("input[name=newEmail]").attr("hidden", "hidden");
+        // $("input[name=newEmail]").attr("hidden", "hidden");
         $("input[name=oldPassword]").attr("hidden", "hidden");
         $("input[name=newPassword]").attr("hidden", "hidden");
-        $("input[name=newEmail]").val("");
+        // $("input[name=newEmail]").val("");
         $("input[name=oldPassword]").val("");
         $("input[name=newPassword]").val("");
 
@@ -72,6 +72,34 @@ $(document).ready(function() {
         $("input[name=newPassword]").removeAttr("hidden");
     });
 
+
+    $("#submitChange").click(function() {
+        if ($("input[name=oldPassword]").val() == "" || $("input[name=newPassword]").val() == "") {
+            alert("Please fill out the missing fields");
+            return;
+        }
+
+        var formData = {
+            "oldPassword": $("input[name=oldPassword]").val(),
+            "newPassword": $("input[name=newPassword").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/userChangePassword.php",
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                alert(data);
+                $("#accountModal").modal("toggle");
+            }
+        }).fail(function(error) {
+            console.error("Unable to process", error);
+        });
+
+    });
+    
+    /*
     $("#submitChange").click(function() {
         // change password only
         if ($("input[name=newEmail]").val() == "" && $("input[name=oldPassword]").val() != "" && $("input[name=newPassword]").val() != "") {
@@ -130,5 +158,6 @@ $(document).ready(function() {
             });
         }
     });
+    */
 
 });
