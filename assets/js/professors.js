@@ -64,6 +64,8 @@ $(document).ready(function () {
                 $("#pContent").html(data);
                 $("#pReview").show();
                 $("#pStatBtn").show();
+                $("#pUpvote").removeAttr("hidden");
+                $("#pDownvote").removeAttr("hidden");
             }
         }).fail(function (error) {
             console.error('Unable to load results', error);
@@ -142,6 +144,7 @@ $(document).ready(function () {
         }
 
         var formData = {
+            "Professor": $("#pSelect").val(),
             "ID": $("#puID").val()
         };
 
@@ -151,8 +154,8 @@ $(document).ready(function () {
             data: formData,
             dataType: "text",
             success: function(data) {
-                alert(data);
                 $("#pUpvoteModal").modal("toggle");
+                $("#pContent").html(data);
             }
         }).fail(function(error) {
             console.error("Unable to process", error);
@@ -167,6 +170,7 @@ $(document).ready(function () {
         }
 
         var formData = {
+            "Professor": $("#pSelect").val(),
             "ID": $("#pdID").val()
         };
 
@@ -176,8 +180,8 @@ $(document).ready(function () {
             data: formData,
             dataType: "text",
             success: function(data) {
-                alert(data);
                 $("#pDownvote").modal("toggle");
+                $("#pContent").html(data);
             }
         }).fail(function(error) {
             console.error("Unable to process", error);

@@ -20,8 +20,6 @@
     <link rel="icon" href="assets/img/favicon/favicon-32x32.png" sizes="32x32" type="image/png">
     <link rel="icon" href="assets/img/favicon/favicon-16x16.png" sizes="16x16" type="image/png">
     <link rel="manifest" href="assets/img/favicon/site.webmanifest">
-    <link rel=”stylesheet”  href=”http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css” rel=”stylesheet”>
-    <link rel=”stylesheet” href=”http://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css”>
     <!--<link rel=”stylesheet” href=”css/bootstrap-star-rating/star-rating.css” media=”all” rel=”stylesheet” type=”text/css”/>-->
 </head>
 
@@ -245,8 +243,6 @@
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/buttons.js"></script>
     <script src="assets/js/professors.js"></script>
-    
-    <script src=”http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js”></script>
     <!--<script src=”js/bootstrap-star-rating/star-rating.js” type=”text/javascript”></script>-->
 </body>
 
