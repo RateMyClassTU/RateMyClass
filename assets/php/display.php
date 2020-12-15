@@ -11,10 +11,12 @@
         exit();
     }
 
-    $query = "SELECT U.Email AS Email, U.FirstName AS FirstName, U.LastName AS LastName, count(CR.Username) AS Posts, IFNULL(sum(CR.Upvotes), '0') AS Upvotes, IFNULL(sum(CR.Downvotes), '0') AS Downvotes
+    $query = "SELECT U.Email AS Email, U.FirstName AS FirstName, U.LastName AS LastName, count(CR.Username)+count(PR.Username) AS Posts, IFNULL(sum(CR.Upvotes)+sum(PR.Upvotes), '0') AS Upvotes, IFNULL(sum(CR.Downvotes)+sum(PR.Downvotes), '0') AS Downvotes
               FROM Users U
               LEFT OUTER JOIN CourseReviews CR
               ON U.Email=CR.Username
+              LEFT OUTER JOIN ProfessorReviews PR
+              ON CR.Username=PR.Username
               WHERE U.Email='$Email';";
     $result = mysqli_query($con, $query);
 
@@ -27,6 +29,17 @@
     $data = mysqli_fetch_array($result);
     $totalVotes = $data['Upvotes'] + $data['Downvotes'];
     $credibility = $data['Upvotes'] / $totalVotes;
+
+    $numPosts = $data['Posts'];
+    if ($numPosts < 2) {
+        $Level = 1;
+    } else if ($numPosts < 6) {
+        $Level = 2;
+    } else if ($numPosts < 9) {
+        $Level = 3;
+    } else if ($numPosts >= 10) {
+        $Level = 4;
+    }
 
     # half star # <i class='fas fa-star-half-alt'></i>
     # empty star # <i class='far fa-star'></i>
@@ -69,7 +82,8 @@
             </table>
             <hr>
             <table width='50%'>
-            <tr><td><b>Credibility :</b></td><td>".$Stars."</td></tr>
+            <tr><td><b>Upvote Rating:</b></td><td>".$Stars."</td></tr>
+            <tr><td><b>Level:</b></td><td><strong>".$Level."</td></tr>
             </table>";
 
     echo($msg);
