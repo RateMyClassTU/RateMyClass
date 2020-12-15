@@ -6,6 +6,9 @@ $(document).ready(function() {
         $("#courseSelect").empty();
         $("#courseSelect").append("<option value='0' selected='true' disabled>Begin by starting a search</option>");
         $("#courseContent").html("");
+        $("#courseReview").hide();
+        $("#courseUpvote").attr("hidden", "hidden");
+        $("#courseDownvote").attr("hidden", "hidden");     
     })
 
     // search a course
@@ -58,6 +61,8 @@ $(document).ready(function() {
             success: function(data) {
                 $("#courseContent").html(data);
                 $("#courseReview").show();
+                $("#courseUpvote").removeAttr("hidden");
+                $("#courseDownvote").removeAttr("hidden");
             }
         }).fail(function(error) {
             console.error('Unable to load results', error);
@@ -90,11 +95,101 @@ $(document).ready(function() {
             success: function(data) {
                 $("#courseModal").modal("toggle");
                 $("#courseContent").html(data);
-                
             }
         }).fail(function(error) {
             console.error('Unable to add reivew into database', error);
         });
     });
+
+    $("#addCourseBtn").click(function() { // modal button
+        $("input[name=addCourseName]").val("");
+        $("input[name=addCourseDesc]").val("");
+    })
+
+    $("#addCourse").click(function() { // add course
+        if ($("input[name=addCourseName]").val() == "") {
+            alert("Enter a course name and try again");
+            return;
+        }
+
+        var formData = {
+            "courseName": $("input[name=addCourseName]").val(),
+            "courseDesc": $("input[name=addCourseDesc]").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/addCourse.php",
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                alert(data);
+            }
+        }).fail(function(error) {
+            console.error('Unable to process', error);
+        });
+    });
+
+    // upvote and downvote modal refresh
+    $("#courseUpvote").click(function() {
+        $("input[name=upReviewID]").val("");
+    })
+
+    $("#courseDownvote").click(function() {
+        $("input[name=downReviewID]").val("");
+    })
+
+    // upvote button
+    $("#courseUpvoteBtn").click(function() {
+        if ($("input[name=upReviewID]").val() == "") {
+            alert("Enter the review id");
+            return;
+        }
+
+        var formData = {
+            "Course": $("#courseSelect").val(),
+            "ID": $("input[name=upReviewID]").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/courseUpvote.php",
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                $("#courseUpvoteModal").modal("toggle");
+                $("#courseContent").html(data);
+            }
+        }).fail(function(error) {
+            console.error('Unable to process', error);
+        });
+
+    });
+
+    $("#courseDownvoteBtn").click(function() {
+        if ($("input[name=downReviewID]").val() == "") {
+            alert("Enter the review id");
+            return;
+        }
+
+        var formData = {
+            "Course": $("#courseSelect").val(),
+            "ID": $("input[name=downReviewID]").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/courseDownvote.php",
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                $("#courseDownvoteModal").modal("toggle");
+                $("#courseContent").html(data);
+            }
+        }).fail(function(error) {
+            console.error('Unable to process', error);
+        });
+    });
+    
 });
 
