@@ -9,10 +9,12 @@
         exit();
     }
 
-    $query = "SELECT U.ID AS ID, U.Email AS Email, U.FirstName AS FirstName, U.LastName AS LastName, count(CR.Username) AS Posts, IFNULL(sum(CR.Upvotes), '0') AS Upvotes, IFNULL(sum(CR.Downvotes), '0') AS Downvotes
+    $query = "SELECT U.ID AS ID, U.Email AS Email, U.FirstName AS FirstName, U.LastName AS LastName, count(CR.Username)+count(PR.Username) AS Posts, IFNULL(sum(CR.Upvotes)+sum(PR.Upvotes), '0') AS Upvotes, IFNULL(sum(CR.Downvotes)+sum(PR.Downvotes), '0') AS Downvotes
               FROM Users U
               LEFT OUTER JOIN CourseReviews CR
               ON U.Email=CR.Username
+              LEFT OUTER JOIN ProfessorReviews PR
+              ON U.Email=PR.Username
               WHERE U.Status=0 || U.Status=1
               GROUP BY U.Email
               ORDER BY U.ID ASC;";

@@ -55,14 +55,17 @@
                                 <a id="showUserBtn" href="#">Show Users</a>
                             </li>
                             <li class="serviceLink">
-                                <a id="showAdminBtn" href="#">Show Admins</a>
+                                <a id="showReportBtn" href="#">Check Reported Users</a>
+                            </li>
+                            <li class="serviceLink">
+                                <a id="viewReport" data-toggle="modal" href="#viewReportModal">View Reports</a>
                             </li>
                         </ul>
                     </div>
                     <div class="d-flex flex-grow-1 justify-content-center col-6" style="font-size: 16px;font-family: 'Amazon Ember Light';">
                         <ul class="serviceGroup">
                             <li class="serviceLink">
-                                <a id="showReportBtn" href="#">Check Reports</a>
+                                <a id="showAdminBtn" href="#">Show Admins</a>
                             </li>
                             <li class="serviceLink">
                                 <a id="manageUserBtn" data-toggle="modal" href="#manageUser">Manage User</a>
@@ -98,6 +101,7 @@
                             <option value="0" selected="true">Select action</option>
                             <option value="promoteUser">Promote</option>
                             <option value="demoteUser">Demote</option>
+                            <option value="suspendUser">Suspend</option>
                             <option value="deleteUser">Delete</option>
                         </select>
                     </div>
