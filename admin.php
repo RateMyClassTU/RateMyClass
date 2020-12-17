@@ -58,7 +58,7 @@
                                 <a id="showReportBtn" href="#">Check Reported Users</a>
                             </li>
                             <li class="serviceLink">
-                                <a id="viewReport" data-toggle="modal" href="#viewReportModal">View Reports</a>
+                                <a id="viewReport" href="#">View Reports</a>
                             </li>
                         </ul>
                     </div>
@@ -77,6 +77,21 @@
         </div>
     </div>
     <div class="container mt-5">
+        <div id="viewContainer" class="row" hidden>
+            <div class="input-group col-3">
+                <input id="UserId" class="form-control" placeholder="Enter user id">
+                <button id="UserIdSearch" class="btn btn-warning border-0" style="border-radius: 0 0.25rem 0.25rem 0;">Search</button>
+            </div>
+            <div class="input-group col-3">
+                <input id="ReviewId" class="form-control" placeholder="Review Id">
+                <button id="ReviewIdBtn" class="btn btn-dark border-0" style="border-radius:0 0.25rem 0.25rem 0;">Resolve</button>
+            </div>
+            <div class="input-group col-3">
+                <button id="DeactivateIdBtn" class="btn btn-danger border-0 ml-5">Deactivate</button>
+            </div>
+
+        </div>
+        
         <div id="adminContent"></div>
     </div>
     <div id="manageUser" class="modal fade" role="dialog">
@@ -101,7 +116,6 @@
                             <option value="0" selected="true">Select action</option>
                             <option value="promoteUser">Promote</option>
                             <option value="demoteUser">Demote</option>
-                            <option value="suspendUser">Suspend</option>
                             <option value="deleteUser">Delete</option>
                         </select>
                     </div>
