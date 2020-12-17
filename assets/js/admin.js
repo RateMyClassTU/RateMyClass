@@ -1,6 +1,7 @@
-var manageUserBtnCntr = 0; // display user accounts
-var manageAdminBtnCntr = 0; // display admins
-var showReportBtnCntr = 0; // display users with highest downvotes
+let manageUserBtnCntr = 0; // display user accounts
+let manageAdminBtnCntr = 0; // display admins
+let showReportBtnCntr = 0; // display users with highest downvotes
+let viewReportBtnCntr = 0; // display specific reports
 
 $(document).ready(function() {
     
@@ -10,6 +11,12 @@ $(document).ready(function() {
             manageAdminBtnCntr = 0;
             manageUserBtnCntr = 1;
             showReportBtnCntr = 0;
+
+            if (viewReportBtnCntr == 1) {
+                viewReportBtnCntr = 0;
+                $("#viewContainer").attr("hidden", "hidden");
+            }
+
             $.ajax({
                 type: "POST",
                 url: "assets/php/adminUser.php",
@@ -31,6 +38,12 @@ $(document).ready(function() {
             manageUserBtnCntr = 0;
             manageAdminBtnCntr = 1;
             showReportBtnCntr = 0;
+
+            if (viewReportBtnCntr == 1) {
+                viewReportBtnCntr = 0;
+                $("#viewContainer").attr("hidden", "hidden");
+            }
+
             $.ajax({
                 type: "POST",
                 url: "assets/php/adminAdmin.php",
@@ -53,6 +66,11 @@ $(document).ready(function() {
             manageUserBtnCntr = 0;
             manageAdminBtnCntr = 0;
             showReportBtnCntr = 1;
+
+            if (viewReportBtnCntr == 1) {
+                viewReportBtnCntr = 0;
+                $("#viewContainer").attr("hidden", "hidden");
+            }
 
             $.ajax({
                 type: "POST",
@@ -138,6 +156,99 @@ $(document).ready(function() {
         $("#userSearch").val("");
         $("#userSelect").empty();
         $("#userSelect").append("<option value='0' selected='true'>Search and select user</option>");
+        $("#actionSelect").val("0");
     });
+
+    // view report button
+    $("#viewReport").click(function() {
+        if (viewReportBtnCntr == 0) {
+            // close and clear other containers if open
+            manageUserBtnCntr = 0;
+            manageAdminBtnCntr = 0;
+            showReportBtnCntr = 0;
+            $("#adminContent").html("");
+
+            // show the buttons
+            viewReportBtnCntr = 1;
+            $("#viewContainer").removeAttr("hidden");
+
+            // clear previous search
+            $("#UserId").val("");
+            $("#ReviewId").val("");
+        } else {
+            viewReportBtnCntr = 0; // hide
+            $("#viewContainer").attr("hidden", "hidden");
+            $("#adminContent").html("");
+        }
+    });
+
+    // search a user (to find their reviews)
+    $("#UserIdSearch").click(function() {
+        if ($("#UserId").val() == "") {
+            alert("Please enter a user id number");
+            return;
+        }
+
+        var formData = {
+            "ID": $("#UserId").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/showReport.php",
+            async: false,
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                $("#adminContent").html(data);
+            }
+        }).fail(function(error) {
+            console.error("Unable to load reports", error);
+        });
+    });
+
+    $("#ReviewIdBtn").click(function() {
+        if ($("#ReviewId").val() == "") {
+            alert("Please enter a review number");
+            return;
+        }
+
+        var formData = {
+            "ID": $("#ReviewId").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/resolveReport.php",
+            async: false,
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                alert(data);
+                $("#ReviewId").val("");
+            }
+        }).fail(function(error) {
+            console.error("Unable to resolve report", error);
+        });
+    });
+
+    $("#DeactivateId").click(function() {
+        var formData = {
+            "ID": $("#UserId").val()
+        };
+
+        $.ajax({
+            type: "POST",
+            url: "assets/php/deactivate.php",
+            async: false,
+            data: formData,
+            dataType: "text",
+            success: function(data) {
+                alert(data);
+            }
+        }).fail(function(error) {
+            console.error("Could not deactivate", error);
+        })
+    })
 
 });

@@ -55,14 +55,17 @@
                                 <a id="showUserBtn" href="#">Show Users</a>
                             </li>
                             <li class="serviceLink">
-                                <a id="showAdminBtn" href="#">Show Admins</a>
+                                <a id="showReportBtn" href="#">Check Reported Users</a>
+                            </li>
+                            <li class="serviceLink">
+                                <a id="viewReport" href="#">View Reports</a>
                             </li>
                         </ul>
                     </div>
                     <div class="d-flex flex-grow-1 justify-content-center col-6" style="font-size: 16px;font-family: 'Amazon Ember Light';">
                         <ul class="serviceGroup">
                             <li class="serviceLink">
-                                <a id="showReportBtn" href="#">Check Reports</a>
+                                <a id="showAdminBtn" href="#">Show Admins</a>
                             </li>
                             <li class="serviceLink">
                                 <a id="manageUserBtn" data-toggle="modal" href="#manageUser">Manage User</a>
@@ -74,6 +77,21 @@
         </div>
     </div>
     <div class="container mt-5">
+        <div id="viewContainer" class="row mb-3" hidden>
+            <div class="input-group col-3">
+                <input id="UserId" class="form-control" placeholder="Enter user id">
+                <button id="UserIdSearch" class="btn btn-light" style="border: 1px solid grey; border-radius: 0 0.25rem 0.25rem 0;">Search</button>
+            </div>
+            <div class="input-group col-3">
+                <input id="ReviewId" class="form-control" placeholder="Review Id">
+                <button id="ReviewIdBtn" class="btn btn-dark border-0" style="border-radius:0 0.25rem 0.25rem 0;">Resolve</button>
+            </div>
+            <div class="input-group col-3">
+                <button id="DeactivateIdBtn" class="btn btn-danger border-0 ml-5">Deactivate</button>
+            </div>
+
+        </div>
+        
         <div id="adminContent"></div>
     </div>
     <div id="manageUser" class="modal fade" role="dialog">
