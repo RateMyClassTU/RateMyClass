@@ -77,10 +77,10 @@
         </div>
     </div>
     <div class="container mt-5">
-        <div id="viewContainer" class="row" hidden>
+        <div id="viewContainer" class="row mb-3" hidden>
             <div class="input-group col-3">
                 <input id="UserId" class="form-control" placeholder="Enter user id">
-                <button id="UserIdSearch" class="btn btn-warning border-0" style="border-radius: 0 0.25rem 0.25rem 0;">Search</button>
+                <button id="UserIdSearch" class="btn btn-light" style="border: 1px solid grey; border-radius: 0 0.25rem 0.25rem 0;">Search</button>
             </div>
             <div class="input-group col-3">
                 <input id="ReviewId" class="form-control" placeholder="Review Id">

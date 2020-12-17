@@ -178,6 +178,7 @@ $(document).ready(function() {
         } else {
             viewReportBtnCntr = 0; // hide
             $("#viewContainer").attr("hidden", "hidden");
+            $("#adminContent").html("");
         }
     });
 
