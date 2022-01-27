@@ -152,4 +152,7 @@ Again, you need to edit some files to make it work for you. These are:
   - MySQL scripts must all be edited to work with your database
   - config.php must be edited with your MySQL server information
   - register2.php and reset2.php must be changed with your PHPMailer information (to send verification emails)
+
+
+###Use of our code must be creditted to Gaurav Shinde and Robert Ni for RateMyClassTU github project link on your website.
   
